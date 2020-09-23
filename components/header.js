@@ -47,15 +47,29 @@ export default function Header () {
           </>}
         </p>
       </div>
-      <nav>
-        <ul className={styles.navItems}>
-          <li className={styles.navItem}><Link href="/"><a>Home</a></Link></li>
-          <li className={styles.navItem}><Link href="/client"><a>Client</a></Link></li>
-          <li className={styles.navItem}><Link href="/server"><a>Server</a></Link></li>
-          <li className={styles.navItem}><Link href="/protected"><a>Protected</a></Link></li>
-          <li className={styles.navItem}><Link href="/api-example"><a>API</a></Link></li>
-        </ul>
-      </nav>
+      <div className="header">
+
+<div className="logo">
+<h1>  <a href="/">Bare Bones</a></h1>
+</div>
+
+ <div className="nav">
+    <div className="support">
+    <a href="/forms/donate">donate</a>
+    </div>
+    <div className="post">
+      <a href="/forms/post">post</a>
+    </div> 
+    <div className="profile">
+        <div className="proimg">
+        <img src="https://via.placeholder.com/30" alt="profile"></img>
+        </div>  
+        <div className="txt">
+        <p> Profile </p>
+      </div>
+    </div>
+</div> 
+</div>
     </header>
   )
 }
