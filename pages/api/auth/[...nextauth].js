@@ -47,7 +47,14 @@ const options = {
   // Notes:
   // * You must to install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  database: process.env.DATABASE_URL,
+  database: {
+    type: 'mysql',
+    host: 'formbones.crspws2zpof3.us-east-2.rds.amazonaws.com',
+    port: 3306,
+    username: 'm4gg0t',
+    password: 'fascistjock',
+    database: 'formbase'
+  },
 
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless

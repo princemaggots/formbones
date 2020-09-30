@@ -69,11 +69,16 @@
 }
 
 .buttonPrimary {
-  background-color: #346df1;
-  border-color: #346df1;
+  background-color: #111114;
+  border-color: #1a1aca;
   color: #fff;
   text-decoration: none;
   padding: .7rem 1.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 10vh;
+/*   padding: 0 3vh 0 2vh; */
 }
 
 .buttonPrimary:hover {
