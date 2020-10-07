@@ -3,17 +3,21 @@ import React from 'react';
  
  const PostForm = () => (
    <div>
-     <h1>Any place in your app!</h1>
+
+     {/* hi!!! remember to fix the css and edit the textarea to match. thanks 
+     image, name, fandom, desc, category (tags). additional has DOB, likes, dislikes, mbti, ennegram, moral alignment */}
+
+
      <Formik
-       initialValues={{ email: '', password: '' }}
+       initialValues={{ name: '', fandom: '', desc: '', DOB:'', likes: '', dislikes:'', mbti:'', ennegram: '', moralAlignment:''}}
        validate={values => {
          const errors = {};
-         if (!values.email) {
-           errors.email = 'Required';
+         if (!values.name) {
+           errors.name = 'Required';
          } else if (
-           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+           !/^[a-zA-Z\s.,\d]*$/i.test(values.name)
          ) {
-           errors.email = 'Invalid email address';
+           errors.name = 'Character name can only include letters, numbers, and spaces.';
          }
          return errors;
        }}
@@ -25,11 +29,24 @@ import React from 'react';
        }}
      >
        {({ isSubmitting }) => (
-         <Form>
-           <Field type="email" name="email" />
-           <ErrorMessage name="email" component="div" />
-           <Field type="password" name="password" />
-           <ErrorMessage name="password" component="div" />
+         <Form> 
+          <label htmlFor="Name">Name</label>
+          <Field id="name" name="name" />
+          <ErrorMessage name="name" component="div"/>
+
+          <label htmlFor="Fandom">Fandom</label>
+          <Field id="fandom" name="fandom" />
+          <ErrorMessage name="fandom" component="div"/>
+
+          <label htmlFor="desc">Description</label>
+          <Field as="textarea" id="desc" name="desc" />
+          <ErrorMessage name="desc" component="div"/>
+
+          <h1> Optional</h1>
+          <label htmlFor="">Label</label>
+          <Field id="" name="" />
+          <ErrorMessage name="" component="div"/> 
+
            <button type="submit" disabled={isSubmitting}>
              Submit
            </button>
@@ -40,3 +57,8 @@ import React from 'react';
  );
  
  export default PostForm;
+
+/*  Template.
+<label htmlFor="">Label</label>
+ <Field id="" name="" />
+ <ErrorMessage name="" component="div"/> */

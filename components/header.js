@@ -49,6 +49,8 @@ export default function Header () {
       </div>
       <div className="header">
 
+{/* make sign in part of the profile button */}
+
 <div className="logo">
 <h1>  <a href="/">Bare Bones</a></h1>
 </div>

@@ -1,10 +1,9 @@
-
+import PostForm from '../components/forms/postform'
 
 export default function PostContainer() {
     return (
         <div className="App">
-            <p> going insane</p>
-
+            <PostForm/>
         </div>
     )
 }

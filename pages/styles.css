@@ -14,7 +14,7 @@
   --headerColor: #2f4238;
   --invalidTextColor: #c50e0e;
   --invalidBackgroundColor: #ff9292;
-  --bruh: #73d3ff;
+  --inputFieldColor: #252b26;
 }
 
 ::-webkit-scrollbar {
@@ -150,6 +150,17 @@ dd {
 }
 
 input {
+  background-color: var(--inputFieldColor);
+  margin: 1vh 2vh;
+  border-radius: 10px;
+  padding: 0.5vw;
+  width: 50vw;
+  color: #f2f2f2;
+  font-family:  'Lucida Sans Unicode', 'Arial', sans-serif;
+}
+
+textarea {
+  resize: none;
   background-color: var(--inputFieldColor);
   margin: 1vh 2vh;
   border-radius: 10px;

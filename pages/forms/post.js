@@ -1,4 +1,4 @@
-import FormContainer from '../../components/postcontainer'
+import PostContainer from '../../components/postcontainer'
 import Header from '../../components/header'
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
@@ -29,7 +29,7 @@ export default function Page() {
       <div className="page">
     <Header></Header>
 
-<FormContainer></FormContainer>
+<PostContainer></PostContainer>
     </div>
   )
 }
