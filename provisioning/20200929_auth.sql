@@ -49,16 +49,6 @@ CREATE TABLE verification_requests
     PRIMARY KEY (id)
   );
 
-/*   CREATE TABLE characters
-  (
-    id         INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    description      VARCHAR(255) NOT NULL,
-    bird    TIMESTAMP(6) NOT NULL,
-    created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    PRIMARY KEY (id)
-  ); */
 
 CREATE UNIQUE INDEX compound_id
   ON accounts(compound_id);
