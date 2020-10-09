@@ -49,11 +49,11 @@ const options = {
   // * The Email provider requires a database (OAuth providers do not)
   database: {
     type: 'mysql',
-    host: 'formbones.crspws2zpof3.us-east-2.rds.amazonaws.com',
+    host: process.env.RDS_HOST,
     port: 3306,
-    username: 'm4gg0t',
-    password: 'fascistjock',
-    database: 'formbase'
+    username: process.env.RDS_USER,
+    password: process.env.RDS_PASSWORD,
+    database: process.env.RDS_DBNAME
   },
 
   // The secret should be set to a reasonably long random string.

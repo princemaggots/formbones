@@ -50,9 +50,9 @@ const PostForm: React.FC<{
             axios.post(
               '/api/directory/savecharacter',
               values
-            ).then(() => {
-              router.push('/directory')
-            })
+            )/* .then(() => {
+              router.push('/directory') 
+            })*/
 
           }}
         >
@@ -73,8 +73,23 @@ const PostForm: React.FC<{
           <Field as="textarea" id="description" name="description" />
 
           <h1> Optional</h1>
-          <label htmlFor="DOB">Label</label>
+          <label htmlFor="DOB">DOB</label>
           <Field id="DOB" name="DOB" />
+
+          <label htmlFor="likes">Likes</label>
+          <Field id="likes" name="likes" />
+
+          <label htmlFor="dislikes">Dislikes</label>
+          <Field id="dislikes" name="dislikes" />  
+
+          <label htmlFor="mbti">MBTI</label>
+          <Field id="mbti" name="mbti" />
+
+          <label htmlFor="ennegram">Ennegram</label>
+          <Field id="ennegram" name="ennegram" />
+
+          <label htmlFor="moralAlignment">Moral Alignment</label>
+          <Field id="moralAlignment" name="moralAlignment" />
 
            <button type="submit">
              Submit

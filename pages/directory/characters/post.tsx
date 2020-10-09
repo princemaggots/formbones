@@ -41,7 +41,9 @@ export default function Page() {
   return (
     <div className="page">
     <Layout>
-      <PostForm initialValues={initialValues}/> 
+      <div className="App">      
+        <PostForm initialValues={initialValues}/> 
+      </div>
     </Layout>
     </div>
   )
