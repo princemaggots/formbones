@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 
 /* STYLE THIS PAGE PLEASE */
@@ -133,7 +135,7 @@ class Index extends Component {
       
 
     //console.log(React.version)
-    this.props.characters.map(o => (o.edit = <Link href={`/directory/post/${o.id}`}><i className="fas fa-edit"></i></Link>)) 
+    this.props.characters.map(o => (o.edit = <Link href={`/directory/post/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)) 
 /*     this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><i className="fas fa-trash"></i></Link>)) */
     return (
       <DataTable
@@ -142,6 +144,7 @@ class Index extends Component {
         data={this.props.characters}
         columns={columns}
         pagination
+        selectableRows
         expandableRows
         highlightOnHover
         defaultSortField="name"
