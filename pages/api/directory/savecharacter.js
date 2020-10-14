@@ -5,8 +5,13 @@ var mysql = require('mysql');
 
 export default async (req, res) => {
   const session = await getSession({ req })
-  let character = Object.entries(req.body)
+  let character = Object.entries(req.body).filter(([key])=>key).reduce((memo,[key,val])=>{
+    memo[key] = val
+    return memo
+  }, {})
+
   character.user_email = session.user.email;
+
 
   if (session) {
 
@@ -24,7 +29,6 @@ export default async (req, res) => {
       res.send({ content: req.body, session, character })
       // Neat!
     })
-
     connection.end();
 
   } else {

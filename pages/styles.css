@@ -61,7 +61,7 @@
 }
 
 .containerhome {
-  width:  80vw;
+  width:  90vw;
   margin: 4vw auto;
   background-color: var(--appColor);
   border-radius: 1vh;
@@ -263,4 +263,13 @@ button:hover {
   border-radius: 10px;
   padding: 2vh;
   margin-bottom: 0.1vw;
+}
+
+.right {
+  text-align: right;
+  margin-bottom: 1vw;
+}
+
+.big {
+  font-size: 25px;
 }
