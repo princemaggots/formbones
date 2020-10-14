@@ -38,6 +38,7 @@ const PostForm: React.FC<{
   const [toDir, setToDir] = useState(false)
   const router = useRouter()
    return (
+    initialValues &&
      <div>
        <h1>New Character</h1>
        <Formik
@@ -96,7 +97,7 @@ const PostForm: React.FC<{
            </button>
          </Form>
      </Formik>
-   </div>
+   </div> || null
  );
  }
  

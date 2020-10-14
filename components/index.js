@@ -135,7 +135,7 @@ class Index extends Component {
       
 
     //console.log(React.version)
-    this.props.characters.map(o => (o.edit = <Link href={`/directory/post/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)) 
+    this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)) 
 /*     this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><i className="fas fa-trash"></i></Link>)) */
     return (
       <DataTable
