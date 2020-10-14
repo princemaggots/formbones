@@ -35,8 +35,15 @@ createTheme('Swamp', {
 });
 
 const customStyles = {
+    rows: {
+        style: {
+            fontSize: '14px',
+        },
+    },
     headCells: {
       style: {
+        fontSize: '14px',
+        fontWeight: '600',
         paddingLeft: '2px', // override the cell padding for head cells
         paddingRight: '2px',
       },
