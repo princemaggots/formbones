@@ -31,6 +31,8 @@ import { useRouter } from 'next/router';
  const myInput = ({ field, form, ...props }) => {
   return <input {...field} {...props} />;
 };
+
+const title = typeof(initialValues) !== 'undefined' && initialValues.id ? <h1>Edit Character</h1> : <h1>New Character</h1>
  
 const PostForm: React.FC<{
   initialValues: CharacterValues
@@ -40,7 +42,7 @@ const PostForm: React.FC<{
    return (
     initialValues &&
      <div>
-       <h1>New Character</h1>
+       {title}
        <Formik
           initialValues={ initialValues }
           onSubmit={(
