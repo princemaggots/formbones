@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { signIn, signOut, useSession } from '../node_modules/next-auth/client'
 import styles from './header.module.css'
 
+
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
@@ -62,14 +63,14 @@ export default function Header () {
     <div className="post">
       <a href="/directory/characters/post">post</a>
     </div> 
-    <div className="profile">
+     <div className="profile">
         <div className="proimg">
         <img src="https://via.placeholder.com/30" alt="profile"></img>
         </div>  
         <div className="txt">
         <p> Profile </p>
       </div>
-    </div>
+    </div> 
 </div> 
 </div>
     </header>

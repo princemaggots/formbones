@@ -90,7 +90,8 @@ class Index extends Component {
 
 
   render () {
-
+    
+    const {contextActions} = this.props
 
 
     const columns = [
@@ -148,18 +149,15 @@ class Index extends Component {
 
     //console.log(React.version)
     this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)); 
-    this.props.characters.map(o => (o.delete = <Link href={`directory/deletecontact/${o.id}`}><FontAwesomeIcon icon={faTrash} /></Link>)) 
+   this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><FontAwesomeIcon icon={faTrash} /></Link>))  
 
-    const contextActions = () => {
-      return <FontAwesomeIcon icon={faTrash} onClick={this.handleAction(row)} />
-    };
+
 
     return (
       <DataTable
         theme="Swamp"
         data={this.props.characters}
         columns={columns}
-        contextActions={contextActions}
         selectableRows
         selectableRowsVisibleOnly
         expandableRows
