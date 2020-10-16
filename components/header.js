@@ -1,6 +1,8 @@
+import { loadComponents } from 'next/dist/next-server/server/load-components'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from '../node_modules/next-auth/client'
 import styles from './header.module.css'
+import Profile from '../components/profile/menu'
 
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
@@ -60,16 +62,17 @@ export default function Header () {
     <a href="/directory/donate">donate</a>
     </div>
     <div className="post">
-      <a href="/directory/characters/post">post</a>
+      <a href="/directory/character/post">post</a>
     </div> 
-    <div className="profile">
+{/*     <Profile/> */}
+{/*     <div className="profile">
         <div className="proimg">
         <img src="https://via.placeholder.com/30" alt="profile"></img>
         </div>  
         <div className="txt">
         <p> Profile </p>
       </div>
-    </div>
+    </div> */}
 </div> 
 </div>
     </header>

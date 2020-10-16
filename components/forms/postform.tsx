@@ -32,13 +32,18 @@ import { useRouter } from 'next/router';
   return <input {...field} {...props} />;
 };
 
-const title = typeof(initialValues) !== 'undefined' && initialValues.id ? <h1>Edit Character</h1> : <h1>New Character</h1>
+
  
 const PostForm: React.FC<{
   initialValues: CharacterValues
 }> = ({ initialValues }) => {
   const [toDir, setToDir] = useState(false)
   const router = useRouter()
+  let title = ''
+  if (typeof(initialValues) !== 'undefined') {
+    title = initialValues.id ? <h1>Edit Character</h1> : <h1>New Character</h1>
+  }
+  
    return (
     initialValues &&
      <div>
@@ -105,3 +110,4 @@ const PostForm: React.FC<{
  
  export default PostForm;
 
+/* disable submit */
