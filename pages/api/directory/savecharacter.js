@@ -5,7 +5,10 @@ var mysql = require('mysql');
 
 export default async (req, res) => {
   const session = await getSession({ req })
-  const character = req.body
+  let character = Object.entries(req.body).filter(([key])=>key).reduce((memo,[key,val])=>{
+    memo[key] = val
+    return memo
+  }, {})
 
   character.user_email = session.user.email;
 

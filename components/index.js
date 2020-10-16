@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit }  from '@fortawesome/free-solid-svg-icons'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
 
 /* STYLE THIS PAGE PLEASE */
-
-
-  
 
 createTheme('Swamp', {
     text: {
@@ -19,7 +16,7 @@ createTheme('Swamp', {
         default: '#13251c',
     },
     context: {
-        background: 'green',
+        background: 'blue',
         text: '#FFFFFF',
     },
     divider: {
@@ -68,15 +65,11 @@ const ExpandedList = ({ data }) => (
         </p>
         <h3>Likes</h3><p>
         {data.likes}
-        </p>
         <h3>Dislikes</h3>
-        <p>
         {data.dislikes}
       </p>
       </div>
   );
-
-
 
 class Index extends Component {
   handleAction(row) {
@@ -87,7 +80,6 @@ class Index extends Component {
         }
       }
   }
-
 
   render () {
 
@@ -129,47 +121,39 @@ class Index extends Component {
         button: true,
         width: '20px',
         pointerOnHover: true,
-      }
-/*        {
-        name: '',
+      },
+/*       {
+        name: 'Delete',
         selector: 'delete',
         sortable: false,
         button: true,
         width: '50px',
         pointerOnHover: true,
-        cell: row => <FontAwesomeIcon icon={faTrash} onClick={this.handleAction(row)} /> 
-       } */
+        /* cell: row => <i className="fas fa-trash" onClick={this.handleAction(row)}></i> */
     ];
 
-
-
+      
 
     //console.log(React.version)
-    this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)); 
-    this.props.characters.map(o => (o.delete = <Link href={`directory/deletecontact/${o.id}`}><FontAwesomeIcon icon={faTrash} /></Link>)) 
-
-    const contextActions = () => {
-      return <FontAwesomeIcon icon={faTrash} onClick={this.handleAction(row)} />
-    };
-
+    this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)) 
+/*     this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><i className="fas fa-trash"></i></Link>)) */
     return (
       <DataTable
+        noHeader={true}
         theme="Swamp"
         data={this.props.characters}
         columns={columns}
-        contextActions={contextActions}
+        pagination
         selectableRows
-        selectableRowsVisibleOnly
         expandableRows
         highlightOnHover
         defaultSortField="name"
         expandableRowsComponent={<ExpandedList />}
         customStyles={customStyles}
-        pagination
       />
     )
-  };
-};
+  }
+}
 
 export default Index
 
