@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DataTable, { createTheme } from 'react-data-table-component';
 import Link from 'next/link'
-import Button from '../components/button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit }  from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'

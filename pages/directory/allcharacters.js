@@ -3,7 +3,6 @@ import { useSession } from 'next-auth/client'
 import Layout from '../../components/layout'
 import AccessDenied from '../../components/access-denied'
 import Index from '../../components/index'
-
 export default function Page () {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
