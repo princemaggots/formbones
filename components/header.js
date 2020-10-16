@@ -60,7 +60,7 @@ export default function Header () {
     <a href="/directory/donate">donate</a>
     </div>
     <div className="post">
-      <a href="/directory/characters/post">post</a>
+      <a href="/directory/character/post">post</a>
     </div> 
     <div className="profile">
         <div className="proimg">
