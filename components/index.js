@@ -90,7 +90,7 @@ class Index extends Component {
 
 
   render () {
-    
+
     const {contextActions} = this.props
 
 
@@ -158,6 +158,7 @@ class Index extends Component {
         theme="Swamp"
         data={this.props.characters}
         columns={columns}
+        contextActions={contextActions}
         selectableRows
         selectableRowsVisibleOnly
         expandableRows
