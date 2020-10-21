@@ -86,11 +86,19 @@ class Index extends Component {
         }
       }
   }
+  handleEdit(row) {
+    return () => {
+      if (this.props.onEdit) {
+        this.props.onEdit(row);
+      }
+    }
+  }
 
 
   render () {
 
     const {contextActions} = this.props 
+    const {handleRowSelected} = this.props
 
     const columns = [
       {
@@ -128,26 +136,18 @@ class Index extends Component {
         selector: 'edit',
         sortable: false,
         button: true,
-        width: '20px',
-        pointerOnHover: true,
-      }
-/*        {
-        name: '',
-        selector: 'delete',
-        sortable: false,
-        button: true,
         width: '50px',
         pointerOnHover: true,
-        cell: row => <FontAwesomeIcon icon={faTrash} onClick={this.handleAction(row)} /> 
-       } */
+        cell: row => <FontAwesomeIcon icon={faEdit} onClick={this.handleEdit(row)} />
+      },
     ];
 
 
 
 
     //console.log(React.version)
-    this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)); 
-   this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><FontAwesomeIcon icon={faTrash} /></Link>))  
+/*     this.props.characters.map(o => (o.edit = <Link href={`/directory/character/${o.id}`}><FontAwesomeIcon icon={faEdit} /></Link>)); 
+   this.props.characters.map(o => (o.delete = <Link href={`directory/deletecharacter/${o.id}`}><FontAwesomeIcon icon={faTrash} /></Link>))   */
 
 
 
@@ -157,6 +157,7 @@ class Index extends Component {
         data={this.props.characters}
         columns={columns}
         contextActions={contextActions}
+        onSelectedRowsChange={handleRowSelected}
         selectableRows
         selectableRowsVisibleOnly
         expandableRows

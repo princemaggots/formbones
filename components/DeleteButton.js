@@ -45,7 +45,7 @@ import { withStyles } from '@material-ui/core/styles';
   return (
 
     <StyledButton variant="contained" href="/api/auth/signin">
-        Sign In
+        Delete Character
       </StyledButton>   
   );
 }; */ 

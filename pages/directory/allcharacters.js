@@ -5,17 +5,27 @@ import AccessDenied from '../../components/access-denied'
 import Index from '../../components/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 
 export default function Page () {
-
+  const [selectedRows, setSelectedRows] = React.useState([]);
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
 
+  const handleRowSelected = React.useCallback(state => {
+    setSelectedRows(state.selectedRows);
+  }, []);
+
   const handleDelete = useCallback((row) => {
+
     if (confirm('Delete character?')) {
       // Delete it
-      fetch(`/api/directory/deletecharacter/${row.id}`).then(async () => {
+      console.log(selectedRows);
+      axios.post(
+        '/api/directory/deletecharacters',
+        selectedRows
+      ).then(async () => {
         const res = await fetch('/api/directory/getcharacters')
         setContent(await res.json())
       });
@@ -38,7 +48,7 @@ export default function Page () {
 
 
   const contextActions = useMemo(() => {
-    return <FontAwesomeIcon icon={faTrash}  />
+    return <FontAwesomeIcon icon={faTrash}  onClick={handleDelete} />
   })
 
 
@@ -59,7 +69,7 @@ export default function Page () {
         <h1 className="right">Characters</h1>
         <p className="right"> All the characters you have submitted.</p>
 
-        {content && <Index characters={content} onDelete={handleDelete} contextActions={contextActions} />}
+        {content && <Index characters={content}  onSelectedRowsChange={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} />}
       </div>
 
     </Layout>
