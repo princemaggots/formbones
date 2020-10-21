@@ -13,15 +13,15 @@ export default function Page () {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
 
-  const handleRowSelected = React.useCallback(state => {
-    setSelectedRows(state.selectedRows);
-  }, []);
+  const handleRowSelected = useCallback((event) => {
+    console.log(event)
+  })
 
   const handleDelete = useCallback((row) => {
 
     if (confirm('Delete character?')) {
-      // Delete it
       console.log(selectedRows);
+      // Delete it
       axios.post(
         '/api/directory/deletecharacters',
         selectedRows
@@ -69,7 +69,7 @@ export default function Page () {
         <h1 className="right">Characters</h1>
         <p className="right"> All the characters you have submitted.</p>
 
-        {content && <Index characters={content}  onSelectedRowsChange={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} />}
+        {content && <Index characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} />}
       </div>
 
     </Layout>
