@@ -8,7 +8,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 /* STYLE THIS PAGE PLEASE */
 
 
-  
 
 createTheme('Swamp', {
     text: {
@@ -91,8 +90,7 @@ class Index extends Component {
 
   render () {
 
-    const {contextActions} = this.props
-
+    const {contextActions} = this.props 
 
     const columns = [
       {
