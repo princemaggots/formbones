@@ -6,23 +6,24 @@ import Index from '../../components/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 
 export default function Page () {
-  const [selectedRows, setSelectedRows] = React.useState([]);
+  const [selectedRows, setSelectedRows] = React.useCallback([]);
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
+  const router = useRouter()
 
   const handleRowSelected = useCallback((event) => {
-    console.log(event)
+    console.log(event);
   })
 
-  const handleDelete = useCallback((row) => {
-
+  const handleDelete = useCallback(() => {
+    console.log('delete rows', selectedRows);
     if (confirm('Delete character?')) {
-      console.log(selectedRows);
       // Delete it
-      axios.post(
+       axios.post(
         '/api/directory/deletecharacters',
         selectedRows
       ).then(async () => {
@@ -34,7 +35,11 @@ export default function Page () {
       // Do nothing!
       console.log('Character was not deleted.');
     }
-  }, [setContent])
+  }, [selectedRows])
+
+  const handleEdit = useCallback((row) => {
+    router.push(`/directory/character/${row.id}`)
+  })
 
   // Fetch content from protected route
   useEffect(()=>{
@@ -69,7 +74,7 @@ export default function Page () {
         <h1 className="right">Characters</h1>
         <p className="right"> All the characters you have submitted.</p>
 
-        {content && <Index characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} />}
+        {content && <Index characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit} />}
       </div>
 
     </Layout>

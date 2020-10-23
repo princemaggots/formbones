@@ -78,14 +78,14 @@ const ExpandedList = ({ data }) => (
 
 
 class Index extends Component {
-  handleAction(row) {
+/*   handleAction(row) {
       return () => {
         console.log(row);
         if (this.props.onDelete) {
           this.props.onDelete(row);
         }
       }
-  }
+  } */
   handleEdit(row) {
     return () => {
       if (this.props.onEdit) {
