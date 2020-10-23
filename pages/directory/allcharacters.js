@@ -16,7 +16,7 @@ export default function Page () {
   const router = useRouter()
 
   const handleRowSelected = useCallback((event) => {
-    console.log(event);
+    console.log(event)
   })
 
   const handleDelete = useCallback(() => {

@@ -279,3 +279,6 @@ button:hover {
 .big {
   font-size: 25px;
 }
+.expander {
+  padding: 02vw;
+}
