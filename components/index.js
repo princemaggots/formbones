@@ -99,6 +99,7 @@ class Index extends Component {
 
     const {contextActions} = this.props 
     const {handleRowSelected} = this.props
+    const {toggleCleared} = this.props
 
     const columns = [
       {
@@ -158,6 +159,7 @@ class Index extends Component {
         columns={columns}
         contextActions={contextActions}
         onSelectedRowsChange={handleRowSelected}
+        clearSelectedRows={toggleCleared}
         selectableRows
         selectableRowsVisibleOnly
         expandableRows

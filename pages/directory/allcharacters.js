@@ -13,7 +13,7 @@ export default function Page () {
   const [selectedRows, setSelectedRows] =useState([])
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
-  const [toggleCleared, setToggleCleared] = React.useState(false);
+  const [toggleCleared, setToggleCleared] = React.useState(true);
   const router = useRouter()
 
 
