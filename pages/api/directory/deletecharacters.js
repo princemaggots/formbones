@@ -5,7 +5,7 @@ var mysql      = require('mysql');
 
 export default async (req, res) => {
   const session = await getSession({ req })
-  const ids = req.body 
+  const ids = [req.body]
 
   if (session) {
 
@@ -24,7 +24,7 @@ export default async (req, res) => {
       // fields will contain information about the returned results fields (if any)
       if (error) throw error;
       console.log('deleted ' + results.affectedRows + ' rows');
-      res.send({id: id})
+      res.send({ids: ids})
     });
 
     connection.end();

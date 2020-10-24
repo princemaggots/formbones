@@ -58,9 +58,9 @@ const PostForm: React.FC<{
             axios.post(
               '/api/directory/savecharacter',
               values
-            )/* .then(() => {
-              router.push('/directory') 
-            })*/
+              ).then(() => {
+                router.push('/directory/allcharacters')
+              })
 
           }}
         >

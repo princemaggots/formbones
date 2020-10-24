@@ -13,6 +13,7 @@ export default function Page () {
   const [selectedRows, setSelectedRows] =useState([])
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
+  const [toggleCleared, setToggleCleared] = React.useState(false);
   const router = useRouter()
 
 
@@ -28,12 +29,13 @@ export default function Page () {
       const ids = selectedRows.map(a => a.id);
        axios.post(
         '/api/directory/deletecharacters',
-        selectedRows
+        ids
       ).then(async () => {
         const res = await fetch('/api/directory/getcharacters')
         setContent(await res.json())
       });
       console.log('Character was deleted.');
+      setToggleCleared(!toggleCleared);
     } else {
       // Do nothing!
       console.log('Character was not deleted.');
@@ -77,7 +79,7 @@ export default function Page () {
         <h1 className="right">Characters</h1>
         <p className="right"> All the characters you have submitted.</p>
 
-        {content && <Index characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit} />}
+        {content && <Index characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}       clearSelectedRows={toggleCleared}/>}
       </div>
 
     </Layout>
