@@ -10,19 +10,22 @@ import { useRouter } from 'next/router'
 
 
 export default function Page () {
-  const [selectedRows, setSelectedRows] = React.useCallback([]);
+  const [selectedRows, setSelectedRows] =useState([])
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
   const router = useRouter()
 
+
   const handleRowSelected = useCallback((event) => {
     console.log(event)
-  })
+    setSelectedRows(event.selectedRows)
+  }, [setSelectedRows])
 
   const handleDelete = useCallback(() => {
     console.log('delete rows', selectedRows);
     if (confirm('Delete character?')) {
       // Delete it
+      const ids = selectedRows.map(a => a.id);
        axios.post(
         '/api/directory/deletecharacters',
         selectedRows
