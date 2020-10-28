@@ -71,6 +71,7 @@ const PostForm: React.FC<{
          <Form> 
          <Field type="hidden" id="id" name="id" />
 
+
           <label htmlFor="characterName">Name</label>
           <Field id="characterName" name="characterName" />
 
@@ -81,6 +82,9 @@ const PostForm: React.FC<{
           <Field as="textarea" id="description" name="description" />
 
           <h1> Optional</h1>
+          <label for="charImage">Image upload</label>
+          <Field id="charImage" name="charImage" type="file" className="form-control" accept="image/png, image/jpeg"/>
+
           <label htmlFor="DOB">DOB</label>
           <Field id="DOB" name="DOB" />
 

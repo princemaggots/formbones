@@ -62,6 +62,9 @@ const customStyles = {
 
 const ExpandedList = ({ data }) => (
       <div className="expander">
+        <h3> Image</h3>
+{/*         {data.charImage} */}
+
       <h3> Description</h3><p>
         {data.description}
         </p>
@@ -99,7 +102,7 @@ class Index extends Component {
 
     const {contextActions} = this.props 
     const {handleRowSelected} = this.props
-    const {toggleCleared} = this.props
+    const {clearSelectedRows} = this.props
 
     const columns = [
       {
@@ -159,7 +162,7 @@ class Index extends Component {
         columns={columns}
         contextActions={contextActions}
         onSelectedRowsChange={handleRowSelected}
-        clearSelectedRows={toggleCleared}
+        clearSelectedRows={clearSelectedRows}
         selectableRows
         selectableRowsVisibleOnly
         expandableRows
