@@ -8,6 +8,9 @@ export default function Page() {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
 
+
+
+
   // Fetch content from protected route
   useEffect(()=>{
     const fetchData = async () => {
@@ -23,6 +26,10 @@ export default function Page() {
 
   // If no session exists, display access denied message
   if (!session) { return  <Layout><AccessDenied/></Layout> }
+
+
+
+
 
   const initialValues={
     id: 0,

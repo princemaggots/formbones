@@ -63,8 +63,11 @@ const customStyles = {
 const ExpandedList = ({ data }) => (
       <div className="expander">
         <h3> Image</h3>
-{/*         {data.charImage} */}
-
+{/*         <img
+      src={window.URL.createObjectURL(
+        new Blob([data.charImage], { type: "application/image" })
+      )}
+    /> */}
       <h3> Description</h3><p>
         {data.description}
         </p>
@@ -81,14 +84,6 @@ const ExpandedList = ({ data }) => (
 
 
 class Index extends Component {
-/*   handleAction(row) {
-      return () => {
-        console.log(row);
-        if (this.props.onDelete) {
-          this.props.onDelete(row);
-        }
-      }
-  } */
   handleEdit(row) {
     return () => {
       if (this.props.onEdit) {

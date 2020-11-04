@@ -238,10 +238,10 @@ button:hover {
   margin-bottom: 3vh;
 }
 
-.inline {
+.errors {
   display: flex;
   align-items: baseline;
-  flex-direction: row;
+  flex-direction: rowe;
   justify-content: flex-start;
   color: var(--invalidTextColor);
   width: 32vw;
