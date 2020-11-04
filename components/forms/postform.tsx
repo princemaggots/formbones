@@ -29,6 +29,7 @@ import * as Yup from 'yup'
    mbti: string;
    ennegram: string;
    moralAlignment: string;
+   location: string;
  }
 
  const myInput = ({ field, form, ...props }) => {
@@ -92,7 +93,7 @@ const PostForm: React.FC<{
     formData.append('file', file);
     formData.append('title', titleInput.value)
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/upload', true);
+    xhr.open('POST', '/api/directory/upload', true);
     xhr.addEventListener('loadend', ({ currentTarget }) => {
       const { status, response } = currentTarget
       if (status === 200) {
@@ -116,21 +117,11 @@ const PostForm: React.FC<{
 
        <Formik
           initialValues={ initialValues }
-          validationSchema={CharacterSchema}
+          validationSchema={CharacterSchema}    
           onSubmit={(
             values: CharacterValues,
             { setSubmitting }: FormikHelpers<CharacterValues>
           ) => {
-            /* setSubmitting(false);
-            let data = new FormData();
-            data.append("photo1", file, values.charData);
-            return fetch("/api/directory/saveimage", {
-              method: "post",
-              body: data,
-            })
-              .then((response) => response.json())
-              .catch((error) => console.log(error));
-            delete values.charData; */
             axios.post("/api/directory/savecharacter", values).then(() => {
               router.push("/directory/allcharacters");
             });
@@ -139,7 +130,14 @@ const PostForm: React.FC<{
 
      {/* hi!!! remember to fix the css and edit the textarea to match. thanks 
      image, name, fandom, description, category (tags). additional has DOB, likes, dislikes, mbti, ennegram, moral alignment */}
-         {({ errors, touched }) => (
+ {({ errors, touched, values, setValues, imageUrl }) => {
+            const setLocation = useCallback(() => {
+              setValues({
+                ...values,
+                location: imageUrl,
+              });
+            }, [imageUrl]);
+            (
          <Form> 
          <Field type="hidden" id="id" name="id" />
 
@@ -161,7 +159,8 @@ const PostForm: React.FC<{
           {errors.description && touched.description? (
              <div>{errors.description}</div>
            ) : null}
-
+          
+          <Field type="hidden" id="location" name="location"/>
 
           <h1> Optional</h1>
 
