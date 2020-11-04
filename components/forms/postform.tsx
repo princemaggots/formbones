@@ -86,9 +86,11 @@ const PostForm: React.FC<{
   const uploadFile = useCallback(() => {
     setError()
     const fileInput = inputFileRef.current;
+    const titleInput = inputTitleRef.current;
     const file = fileInput.files[0];
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('title', titleInput.value)
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/api/upload', true);
     xhr.addEventListener('loadend', ({ currentTarget }) => {
@@ -208,6 +210,7 @@ const PostForm: React.FC<{
          )}
      </Formik>
      <h1>Image Upload</h1>
+            <input ref={inputTitleRef} type="hidden" name="title"></input>
              <input ref={inputFileRef} type="file" name="upload" onChange={onFileChange}></input>
              <button onClick={uploadFile}>Upload</button>
             {error && <span>{error}</span>}
