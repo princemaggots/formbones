@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
 
+
 import Link from 'next/link';
 
 
@@ -24,10 +25,10 @@ const StyledMenuItem = withStyles({
             'sans-serif',
           ].join(','),
       '&:hover': {
-          background:'#437024',
+          background:'#3e870d',
       },
       '&:focus': {
-        backgroundColor: 'red',
+        backgroundColor: '#006600',
         '& .MuiListItemText-primary': {
           color: 'white'
         },
@@ -101,6 +102,7 @@ export default function Profile() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
+                    <Link href="../profile"><StyledMenuItem onClick={handleClose}>View Profile</StyledMenuItem></Link>
                     <Link href="/directory/allcharacters"><StyledMenuItem onClick={handleClose}>Characters</StyledMenuItem></Link>
                     <Link href="../settings"><StyledMenuItem onClick={handleClose}>Setting</StyledMenuItem></Link>
                     <Link href="/api/auth/signout"><StyledMenuItem onClick={handleClose}>Logout</StyledMenuItem></Link>

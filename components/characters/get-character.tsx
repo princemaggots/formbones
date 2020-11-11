@@ -1,11 +1,11 @@
-import PostForm from '../../../components/forms/postform'
+import PostForm from '../characters/postform'
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
-import Layout from '../../../components/layout'
-import AccessDenied from '../../../components/access-denied'
+import Layout from '../layout'
+import AccessDenied from '../access-denied'
 import {useRouter} from 'next/router'
 
-export default function Page () {
+export default function GetCharacter () {
   const [ session, loading ] = useSession()
   const [ character , setCharacter ] = useState()
   const router = useRouter()

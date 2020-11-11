@@ -2,21 +2,25 @@
 
 /* ---- COLORS ----- */
 :root {
-  --backgroundColor: #111114;
-  --appColor: #202020;
+  --backgroundColor: #000;
+  --appColor: #0d0d0d;
   --textColor: #f2f2f2;
   --fontSizeHeader: 18px;
   --scrollbarColor: #2e4934;
   --scrollHoverColor: #585858;
-  --linkHover: #82dd45;
-  --buttonBackgroundColor: #1d2d21;
-  --buttonBackgroundColorHover: #437024;
-  --headerColor: #2f4238;
+  --linkHover: #6afff8;
+  --buttonBackgroundColor: #0b7726;
+  --buttonBackgroundColorHover: #07531a;
+  --headerColor: #387c47;
   --invalidTextColor: #c50e0e;
   --invalidBackgroundColor: #ff9292;
-  --inputFieldColor: #252b26;
+  --inputFieldColor: #1d221d;
 }
 
+::selection {
+  background-color: #0000ff;
+  color: #fbfffb;
+}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -58,6 +62,7 @@
   border-radius: 1vh;
   min-height: 50vh;
   padding: 1vh 4vh;
+  border: 2px solid #236948;
 }
 
 .containerhome {
@@ -166,12 +171,12 @@ input[type="checkbox"] {
 }
 
 textarea {
-  resize: none;
   background-color: var(--inputFieldColor);
   margin: 1vh 2vh;
   border-radius: 10px;
   padding: 0.5vw;
   width: 50vw;
+  height: 4vw;
   color: #f2f2f2;
   font-family:  'Lucida Sans Unicode', 'Arial', sans-serif;
 }
@@ -200,6 +205,8 @@ button {
   font-weight: bold;
   font-size: 14px;  
   margin-bottom:1vh;
+  border: none;
+  letter-spacing:1.2px;
 }
 
 button:hover {
@@ -238,10 +245,10 @@ button:hover {
   margin-bottom: 3vh;
 }
 
+
 .errors {
   display: flex;
   align-items: baseline;
-  flex-direction: rowe;
   justify-content: flex-start;
   color: var(--invalidTextColor);
   width: 32vw;
@@ -279,6 +286,22 @@ button:hover {
 .big {
   font-size: 25px;
 }
-.expander {
-  padding: 02vw;
+
+
+
+
+.submission {
+  margin-top: 1.3vw;
+  height: 2.5vw;
+  width: 6vw;
 }
+
+.submitbox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.desc-error {
+  margin-top: 0.5vw;
+}
+

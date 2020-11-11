@@ -1,0 +1,34 @@
+.homeimg {
+    margin: 2vh;
+    width: 25vw;
+  }
+
+  .homeimg img {
+      width: 100%;
+  }
+  .containerhome {
+    display: flex;
+    justify-content: space-between;
+    width:  90vw;
+    margin: 4vw auto;
+    background-color: #0d0d0d;
+    border-radius: 1vh;
+    min-height: 50vh;
+    padding: 2vh 4vh;
+  }
+
+  .welcome {
+      width: 65vw
+  }
+  .welcome h1 {
+      font-size: 28px;
+      text-align: right;
+      padding-bottom: 10px;
+    border-bottom: 2px solid #1e581c69;
+    margin-bottom: 1.5vw;
+  }
+
+  .welcome p {
+    line-height: 2;
+
+}

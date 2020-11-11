@@ -36,7 +36,7 @@ const GlobalCss = withStyles({
           ].join(','),
     '&:hover': {
       backgroundColor: 'black',
-      color: '#82dd45',
+      color: '#6afff8',
       border: 0,
       fontWeight: 500,
       fontSize: 17,

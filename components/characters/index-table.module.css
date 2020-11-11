@@ -1,0 +1,65 @@
+.expander {
+    padding: 02vw;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chardisplay {
+    max-width: 40vw;
+  }
+
+  .chardisplay img {
+      width: 100%;
+  }
+
+  .text {
+     width: 60vw;
+  }
+  
+  .textbox {
+    background-color: #1a211a;
+    height: 20vw;
+    padding: 15px;
+    width: 40vw;
+    border-radius: 10px;
+    overflow: auto;
+    margin: auto;
+    break-inside: avoid; 
+  }
+
+  .margin {
+      margin-top: 1vw;
+      width: 90%;
+      height: 16vw;
+  }
+
+  .textbox h3 {
+    text-transform: lowercase;
+    background-color: #268035;
+    padding: 10px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    text-align: right;
+  }
+
+  .t1 {
+      margin-bottom: 2vw;
+  }
+
+  .textbox ul {
+    margin-left: -8%;
+  }
+
+  .textbox li {
+    overflow: hidden;
+	padding: 6px 0px;
+  }
+  .textbox li:last-child {
+	border: none;
+  }
+
+  .textbox li b {
+    font-size: 17px;
+    margin-right: 5px;
+    font-weight: 600;
+  }

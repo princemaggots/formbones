@@ -21,7 +21,7 @@
     "include": [
       "next-env.d.ts",
       "**/*.ts",
-      "**/*.tsx"
+      "**/*.tsx", "pages/directory/character/[id].js"
     ],
     "exclude": [
       "node_modules"

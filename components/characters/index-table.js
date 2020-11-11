@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit }  from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import styles from './index-table.module.css'
 
 /* STYLE THIS PAGE PLEASE */
 
@@ -15,23 +16,25 @@ createTheme('Swamp', {
         secondary: '#fff',
      },
     background: {
-        default: '#13251c',
+        default: '#204628',
     },
     context: {
-        background: 'green',
+        background: '#3b9155',
         text: '#FFFFFF',
     },
     divider: {
-        default: '#111114',
+        default: '#181821',
     },
     button: {
-        default: '#2aa198',
+        default: '#3cd7ca',
         hover: 'rgba(0,0,0,.0)',
         focus: 'rgba(255,255,255,0)',
+        disabled: 'rgba(0, 0, 0, .50)',
     },
     sortFocus: {
-          default: '#2aa198',
+          default: '#71dad2',
         },
+
     highlightOnHover: {
         default: '#458765',
         text: '#fff',
@@ -61,29 +64,45 @@ const customStyles = {
   };
 
 const ExpandedList = ({ data }) => (
-      <div className="expander">
-        <h3> Image</h3>
-{/*         <img
-      src={window.URL.createObjectURL(
-        new Blob([data.charImage], { type: "application/image" })
-      )}
-    /> */}
-      <h3> Description</h3><p>
-        {data.description}
-        </p>
-        <h3>Likes</h3><p>
-        {data.likes}
-        </p>
-        <h3>Dislikes</h3>
-        <p>
-        {data.dislikes}
-      </p>
+      <div className={styles.expander}>
+        <div className={styles.text}>
+          <div className={`${styles.textbox} ${styles.t1}`}>
+            <h3> Description</h3><p>
+              {data.description}
+              </p>
+            </div>
+            <div className={styles.textbox}>
+            <h3> Biography</h3><p>
+                {data.biography}
+              </p>
+            </div>
+        </div>
+        <div className={styles.chardisplay}>
+          <img src={data.location} />
+          <div className={`${styles.textbox} ${styles.margin}`}>
+              <h3>Additional Info</h3>
+              <ul>
+                <li><b>likes:</b> {data.likes}
+                </li>
+                <li><b>dislikes:</b> {data.dislikes}
+                </li>
+                <li><b>birthday:</b> {data.DOB}
+                </li>
+                <li><b>mbti:</b> {data.mbti}
+                </li>
+                <li><b>ennegram:</b> {data.ennegram}
+                </li>
+                <li><b>moral alignment:</b> {data.moralAlignment}
+                </li>
+              </ul>
+            </div>
+        </div>
       </div>
   );
 
 
 
-class Index extends Component {
+class IndexTable extends Component {
   handleEdit(row) {
     return () => {
       if (this.props.onEdit) {
@@ -171,5 +190,5 @@ class Index extends Component {
   };
 };
 
-export default Index
+export default IndexTable
 
