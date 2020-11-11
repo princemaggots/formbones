@@ -54,7 +54,8 @@ const CharacterSchema = Yup.object().shape({
   .required('Required'),
   description: Yup.string()
   .max(60000, 'Too long...')
-  .matches(/[^<>]+/g , 'Cannot contain "<" or ">".'),
+  .matches(/[^<>]+/g , 'Cannot contain "<" or ">".')
+  .required('Required'),
   DOB: Yup.string()
   .max(10, "Too long.")
   .matches(/[\d\\]+/g , 'Must only contain numbers and slashes.'),
@@ -74,21 +75,9 @@ const CharacterSchema = Yup.object().shape({
   moralAlignment: Yup.string()
   .max(50, 'Too long.')
   .matches(/[A-Za-z!?,.]+/g , 'Cannot contain non-alphanumeric characters.'),
-  location: Yup.mixed()
-  .test(
-    "fileSize",
-    "File too large",
-    value => value && value.size <= FILE_SIZE
-  )
-  .test(
-    "fileFormat",
-    "Unsupported Format",
-    value => value && SUPPORTED_FORMATS.includes(value.type)
-  ),
   biography: Yup.string()
   .max(60000, 'Too long...')
-  .matches(/[^<>]+/g , 'Cannot contain "<" or ">".')
-  .required('Required'),
+  .matches(/[^<>]+/g , 'Cannot contain "<" or ">".'),
 });
  
 const PostForm: React.FC<{
