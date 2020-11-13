@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/client'
 import Layout from '../../components/layout'
 import AccessDenied from '../../components/access-denied'
 import { useRouter } from 'next/router'
+import styles from './profile.module.css'
 
 
 export default function Profile () {
@@ -22,7 +23,7 @@ export default function Profile () {
     fetchData()
   },[session])
 
-
+  
 
 
 
@@ -35,12 +36,19 @@ export default function Profile () {
   // If session exists, display content
 
 
-
+  // If session exists, display content
+  if (!content) return null;
   return (
     <Layout>
-      <div className="containerhome">  
-        {content}
-    </div>
+      <div className="containerhome">
+      <h1 className={styles.head}>Profile</h1>
+        <div className={styles.profile}>
+        <div className={styles.info}>
+            <p><b>Name:</b> {content.name} </p>
+            <p><b>Bio:</b> {content.about}</p>
+        </div>
+        <div className={styles.pfp}> <img src={content.image} /></div>
+      </div></div>
     </Layout>
-  )
-}
+  );
+ };

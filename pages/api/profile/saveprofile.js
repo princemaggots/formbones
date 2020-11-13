@@ -7,11 +7,7 @@ export default async (req, res) => {
   const session = await getSession({ req })
   const user = req.body
 
-  user.user_email = session.user.email;
-
-
   if (session) {
-
     var connection = mysql.createConnection({
       host     : process.env.RDS_HOST,
       user     : process.env.RDS_USER,
@@ -21,12 +17,15 @@ export default async (req, res) => {
 
     connection.connect();
 
-    var query = connection.query('UPDATE contacts SET ? WHERE `user_email` = ? AND `id` = ?', user, function (error, results, fields) {
-      if (error) throw error;
-      res.send({ content: req.body, session, user })
-      // Neat!
-    })
-    connection.end();
+    var query = connection.query(
+      "UPDATE users SET ? WHERE `email` = ?",
+      user,
+      function (error, results, fields) {
+        if (error) throw error;
+        res.send({ content: req.body, session, user })
+        // Neat!
+      })
+      connection.end();
 
   } else {
     res.send({ error: 'Error, unauthorized user.' })

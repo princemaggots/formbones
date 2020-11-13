@@ -15,6 +15,9 @@ export default function Index () {
   const [ content , setContent ] = useState()
   const [toggleCleared, setToggleCleared] = React.useState(true);
   const router = useRouter()
+  const [filterText, setFilterText] = React.useState('');
+
+
 
 
   const handleRowSelected = useCallback((event) => {
@@ -78,6 +81,7 @@ export default function Index () {
       <div className="containerhome">  
         <h1 className="right">Characters</h1>
         <p className="right"> All the characters you have submitted.</p>
+        <div className="mobiledisplay"> Please rotate screen to landscape to view characters.</div>
 
         {content && <IndexTable characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}       clearSelectedRows={toggleCleared}/>}
       </div>

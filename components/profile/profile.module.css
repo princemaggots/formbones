@@ -1,0 +1,40 @@
+.pfp {
+    width: 30%;
+}
+
+.pfp img {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1vw 0;
+}
+
+.info {
+    width: 70%;
+}
+
+.info b {
+    padding: 1vh;
+    margin-right: 2vh;
+    font-weight: 550;
+    padding-bottom: 0.5vh;
+    border-bottom: 1px solid #61616196;
+    color: #87df87;
+}
+
+.info p {
+    margin-left: 2vw;
+}
+
+.head {
+    margin: 0.5vw 0.3vw 0.3vw 0.3vw;
+    font-size: 23px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1e581c69;
+
+}

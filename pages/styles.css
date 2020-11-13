@@ -305,3 +305,55 @@ button:hover {
   margin-top: 0.5vw;
 }
 
+.chardisplay {
+  max-width: 40vw;
+}
+
+.mobiledisplay {
+  display: none;
+  color: red;
+  background-color: pink;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: right;
+  margin: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+  .header {
+    height: 9vh;
+  }
+  .mobiledisplay {
+    display: inline-block;
+  }
+  .nav {
+    width: 42vh;
+  }
+  
+  label {
+    width: auto;
+  }
+  input {
+    margin: 1vh 0vh;
+    padding: 1vw;
+    width: 62vw;
+  }
+  textarea {
+    margin: 1vh 0vh;
+    border-radius: 10px;
+    padding: 1vw;
+    width: 62vw;
+    height: 30vw;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .header {
+    height: 15vh;
+  }
+
+  .nav {
+    width: 82vh;
+  }
+}
