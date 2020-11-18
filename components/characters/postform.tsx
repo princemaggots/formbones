@@ -9,6 +9,7 @@ import * as React from 'react';
    Form,
    Field,
    FieldProps,
+   useField
  } from 'formik';
 import Router from 'react-router';
 import { Redirect } from 'react-router-dom';
@@ -23,6 +24,7 @@ import * as Yup from 'yup'
    characterName: string;
    fandom: string;
    description: string;
+   visibility: string
    biography: string;
    DOB: string;
    likes: string;
@@ -33,9 +35,18 @@ import * as Yup from 'yup'
    location: string;
  }
 
- const myInput = ({ field, form, ...props }) => {
-  return <input {...field} {...props} />;
-}; 
+ const MySelect = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <div>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <select {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </div>
+  );
+};
 const FILE_SIZE = 3e+6;
 const SUPPORTED_FORMATS = [
   "image/jpg",
@@ -79,7 +90,7 @@ const CharacterSchema = Yup.object().shape({
   .max(60000, 'Too long...')
   .matches(/[^<>]+/g , 'Cannot contain "<" or ">".'),
 });
- 
+
 const PostForm: React.FC<{
   initialValues: CharacterValues
 }> = ({ initialValues }) => {
@@ -216,7 +227,17 @@ const PostForm: React.FC<{
           {errors.description && touched.description? (
              <div className="errors desc-error">{errors.description}</div>
            ) : null}
-          
+          <h1>Visibility</h1>
+              <div className="radiobox" role="group" aria-labelledby="visibleSetting">
+                <label className="radio">
+                  <Field  type="radio" name="visibility" value="public" />
+                  Public
+                </label>
+                <label className="radio">
+                  <Field type="radio" name="visibility" value="private" />
+                  Private
+                </label>
+              </div>
           <h1>Image Upload</h1>
                 <input ref={inputTitleRef} type="hidden" name="title"></input>
                 <input

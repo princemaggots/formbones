@@ -68,7 +68,7 @@ export default function Header () {
 
  <div className="nav">
     <div className="support">
-    <a href="/directory/donate">donate</a>
+    <a href="/directory/gallery">gallery</a>
     </div>
     <div className="post">
       <a href="/directory/character/post">post</a>

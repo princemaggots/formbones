@@ -319,6 +319,20 @@ button:hover {
   margin: 10px;
 }
 
+.radio {
+  display: flex;
+  width: 8vw;
+}
+
+.radiobox {
+  display: flex;
+  justify-content: flex-start;
+  width: 20vw;
+}
+.radiobox label {
+  border: none;
+}
+
 @media only screen and (max-width: 400px) {
   .header {
     height: 9vh;

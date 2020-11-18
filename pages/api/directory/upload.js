@@ -1,7 +1,8 @@
 import { IncomingForm } from 'formidable'
 import { promisify } from 'util'
 import AWS from 'aws-sdk'
-import { createReadStream, unlinkSync } from 'fs'
+import { createReadStream, unlinkSync } from "fs";
+import { getSession } from "next-auth/client";
 
 const BUCKET = 'formbonesbucket';
 
@@ -10,9 +11,9 @@ export const config = {
     bodyParser: false,
   },
 };
-
 export default async (req, res) => {
-  if (req.method.toLowerCase() == 'post') {
+  const session = await getSession({ req });
+  if (req.method.toLowerCase() == "post") {
     var s3 = new AWS.S3();
       
     var form = new IncomingForm({
@@ -32,15 +33,20 @@ export default async (req, res) => {
     ))
 
     try {
-      const [fields, files] = await asyncFormParse(req)
-      const tmpPath = files.file.path
+      const [fields, files] = await asyncFormParse(req);
+      const tmpPath = files.file.path;
       const readStream = createReadStream(tmpPath);
-      const { Location } = await s3.upload({
+      const path = `${session.user.email}/${fields.title}`;
+      const { Location } = await s3
+        .upload({
+          Bucket: BUCKET,
         Bucket: BUCKET, 
-        Key: fields.title, 
-        Body: readStream,
-        ACL: 'public-read'
-      }).promise()
+          Bucket: BUCKET,
+          Key: path,
+          Body: readStream,
+          ACL: "public-read",
+        })
+        .promise()
       console.log(`Created ${Location}`)
       console.log(`Removing tmp file.... ${tmpPath}`)
       unlinkSync(tmpPath)

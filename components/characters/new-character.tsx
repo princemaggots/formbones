@@ -36,6 +36,7 @@ export default function NewCharacter() {
     characterName: '', 
     fandom: '', 
     description: '', 
+    visibility: 'public',
     biography: '',
     DOB:'', 
     likes: '', 
