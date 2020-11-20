@@ -51,3 +51,10 @@
   width: 25px;
   float: right;
 }
+
+.directory {
+  width: 10vw;
+  background-color: rgb(12, 87, 47);
+  font-size: 14px;
+  margin-top: 1vw;
+}

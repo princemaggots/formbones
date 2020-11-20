@@ -7,6 +7,10 @@ import styles from './gallery.module.css'
 import Character from './character.js'
 
 
+import Pagination from '@material-ui/lab/Pagination';
+
+
+
 export default function Gallery () {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
@@ -22,7 +26,7 @@ export default function Gallery () {
       setContent(await res.json())
     }
     fetchData()
-  },[session]) 
+  }) 
 
   
 
@@ -32,7 +36,6 @@ export default function Gallery () {
   if (typeof window !== 'undefined' && loading) return null
 
   // If no session exists, display access denied message
-  if (!session) { return <Layout><AccessDenied/></Layout> }
 
   // If session exists, display content
 
@@ -42,13 +45,16 @@ export default function Gallery () {
   return (
     <Layout>
       <div className="containerhome character-grid">
+        {session &&   <a href="/directory/allcharacters"><button className={styles.directory}> Character Directory</button></a>}
+      
       <div className={styles.chardisplay}>
       {content.map((item) => (
-          <Character
+         <Character
             data={item}
           />
-        ))}
-      </div>
+        )) }
+      </div>        
+      <Pagination count={10} />
         </div>
     </Layout>
   );

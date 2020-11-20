@@ -16,7 +16,8 @@ const HtmlTooltip = withStyles(() => ({
 }))(Tooltip);
 
 const Character = ({ data, id }) => {
-  
+
+
     const ReviewLine = ({
       dataField,
       extraLines,
@@ -35,7 +36,9 @@ const Character = ({ data, id }) => {
       ) : (null)
       
     };
-  
+    const handleEdit = useCallback((row) => {
+      router.push(`/directory/character/${row.id}`)
+    })
 
     return (
       <div className={styles.frame}>
@@ -48,9 +51,10 @@ const Character = ({ data, id }) => {
        {/*  make a different placeholder image */}
         
        <div className={styles.name}>
+        <a href={`./${data.id}`}>
         <ReviewLine 
           dataField={data.characterName}
-        /></div>
+        /></a></div>
 
         <div className={styles.fandom}>
           <ReviewLine
