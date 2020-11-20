@@ -7,6 +7,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
+import { useSession } from 'next-auth/client'
 
 
 import Link from 'next/link';
@@ -48,6 +49,7 @@ const StyledMenuItem = withStyles({
 
 export default function Profile() {
 /*   const classes = useStyles(); */
+  const [session, loading] = useSession()
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -88,7 +90,7 @@ export default function Profile() {
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
-          startIcon={<img className="proimg" src="https://via.placeholder.com/30" alt=""></img>}
+          startIcon={session && <img className="proimg" src={session.user.image} alt=""></img>}
         >
           Profile
         </Button>

@@ -154,6 +154,11 @@ dd {
   margin-right: 2vh;
 }
 
+.proimg {
+  width: 30px;
+  height: 30px;
+}
+
 input {
   background-color: var(--inputFieldColor);
   margin: 1vh 2vh;

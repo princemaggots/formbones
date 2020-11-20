@@ -3,6 +3,8 @@ import { useSession } from 'next-auth/client'
 import Layout from '../../components/layout'
 import AccessDenied from '../../components/access-denied'
 import { useRouter } from 'next/router'
+import styles from './gallery.module.css'
+import Character from './character.js'
 
 
 export default function Gallery () {
@@ -40,7 +42,13 @@ export default function Gallery () {
   return (
     <Layout>
       <div className="containerhome character-grid">
-          
+      <div className={styles.chardisplay}>
+      {content.map((item) => (
+          <Character
+            data={item}
+          />
+        ))}
+      </div>
         </div>
     </Layout>
   );

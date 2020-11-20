@@ -1,0 +1,53 @@
+.chardisplay {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  justify-items: stretch;
+  width: 100%;
+}
+
+
+
+.frame {
+  width: 250px;
+  height: 300px;
+  border: 1px solid #2fff6d;
+  border-radius: 5px;
+  margin: 0.5vw;
+  padding: 10px;
+}
+
+.charimg {
+  margin: 0 auto 0.5vw auto;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+}
+
+.charimg img {
+ margin: auto;
+ max-width: 100%;
+ max-height: 100%;
+}
+
+.label {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5px;
+}
+
+.fandom {
+  font-size: 14px;
+}
+
+.name {
+  background: #0a5c51;
+  border-radius: 10px;
+}
+
+.private {
+  text-align: right;
+  color: #526cff7e;
+  margin-top: -20px;
+  width: 25px;
+  float: right;
+}
