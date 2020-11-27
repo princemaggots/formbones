@@ -1,9 +1,10 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
-import Layout from '../layout'
-import AccessDenied from '../access-denied'
+import Layout from '../../layout'
+import AccessDenied from '../../access-denied'
 import {useRouter} from 'next/router'
+import CharacterContent from './character-content'
 
 export default function CharacterPage () {
   const [ session, loading ] = useSession()
@@ -16,7 +17,7 @@ export default function CharacterPage () {
   useEffect(()=>{
     const fetchData = async () => {
       if (typeof character_id !== 'undefined') {
-        const res = await fetch(`/api/directory/gallery/${character_id}`)
+        const res = await fetch(`/api/directory/charpage/${character_id}`)
         setCharacter(await res.json()) 
       }
     }
@@ -33,9 +34,9 @@ export default function CharacterPage () {
   return (
     <div className="page">
     <Layout>
-      <div className="containerhome">  
-      <p> Placeholder for page</p>
-      </div>
+     <CharacterContent
+      data={character}
+      /> 
     </Layout>
     </div>
   )

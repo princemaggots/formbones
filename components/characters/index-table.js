@@ -79,6 +79,9 @@ const ExpandedList = ({ data }) => (
         </div>
         <div className={styles.chardisplay}>
           <img src={data.location} />
+          {data.location === "" &&
+          <img src="https://via.placeholder.com/500"/> 
+        }
           <div className={`${styles.textbox} ${styles.margin}`}>
               <h3>Additional Info</h3>
               <ul>

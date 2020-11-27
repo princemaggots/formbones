@@ -5,17 +5,27 @@ import AccessDenied from '../../components/access-denied'
 import { useRouter } from 'next/router'
 import styles from './gallery.module.css'
 import Character from './character.js'
-
-
 import Pagination from '@material-ui/lab/Pagination';
+import { withStyles } from '@material-ui/core/styles'
 
-
+const GlobalCss = withStyles({
+  // @global is handled by jss-plugin-global.
+  '@global': {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    '.MuiPaginationItem-root':{
+      color: 'white',
+    },
+    '.MuiPagination-ul':{
+      marginTop: 12,
+      marginBottom: 10,
+    },
+  },
+})(() => null);
 
 export default function Gallery () {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
   const router = useRouter()
-
 
  
 
@@ -28,6 +38,9 @@ export default function Gallery () {
     fetchData()
   }) 
 
+  const onPaginationChange = useCallback((event, page) => {
+    
+  }, []);
   
 
 
@@ -53,8 +66,13 @@ export default function Gallery () {
             data={item}
           />
         )) }
-      </div>        
-      <Pagination count={10} />
+      </div> 
+
+      <GlobalCss />   
+      <Pagination 
+      onChange={onPaginationChange} 
+      count={10} 
+      />
         </div>
     </Layout>
   );

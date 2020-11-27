@@ -37,7 +37,7 @@ const Character = ({ data, id }) => {
       
     };
     const handleEdit = useCallback((row) => {
-      router.push(`/directory/character/${row.id}`)
+      router.push(`../directory/character/${row.id}`)
     })
 
     return (
@@ -51,7 +51,7 @@ const Character = ({ data, id }) => {
        {/*  make a different placeholder image */}
         
        <div className={styles.name}>
-        <a href={`./${data.id}`}>
+        <a href={`../${data.id}`}>
         <ReviewLine 
           dataField={data.characterName}
         /></a></div>
