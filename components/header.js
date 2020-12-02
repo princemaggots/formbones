@@ -71,8 +71,9 @@ export default function Header () {
     <a href="/directory/gallery/index">gallery</a>
     </div>
     <div className="post">
-      <a href="/directory/allcharacters">characters</a>
-    </div> 
+        <a href="/directory/allcharacters">characters</a>
+        </div> 
+
     {!session && 
         <React.Fragment>
         <GlobalCss />
@@ -82,6 +83,7 @@ export default function Header () {
         </React.Fragment>
           }
       {session && <>
+
         <React.Fragment>
         <GlobalCss />
         <Profile /> 

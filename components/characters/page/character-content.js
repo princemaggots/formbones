@@ -35,6 +35,9 @@ const CharacterContent = ({ data }) => {
         </div>
 
         <div className={styles.box2}>
+        <div className={styles.created}> 
+            <a href={`api/profile/getprofile?email=encodeURIComponent(${email})`}><button className={styles.creator}> created by: {data.user_email}</button></a> </div>
+
             <div className={styles.textbox}>
                 <h3> biography</h3>
                 {data.biography}
@@ -56,8 +59,6 @@ const CharacterContent = ({ data }) => {
                 </li>
               </ul>
             </div>  
-            <div> 
-            <button className={styles.creator}> created by: {data.user_email}</button> </div>
         </div>
 
      </div>

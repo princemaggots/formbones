@@ -5,9 +5,9 @@ var mysql = require('mysql');
 
 export default async (req, res) => {
   const session = await getSession({ req })
-  const email = req.query.user_email
+  const email = req.query.email ? req.query.email : session.user.email;
 
-  if (session) {
+  if (session || req.query.email)  {
 
     var connection = mysql.createConnection({
       host     : process.env.RDS_HOST,

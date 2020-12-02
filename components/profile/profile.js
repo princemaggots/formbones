@@ -17,7 +17,7 @@ export default function Profile () {
   // Fetch content from protected route
   useEffect(()=>{
     const fetchData = async () => {
-      const res = await fetch('/api/profile/getprofile')
+      const res = await fetch(`api/profile/getprofile?email=encodeURIComponent(${email})`)
       setContent(await res.json())
     }
     fetchData()

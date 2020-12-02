@@ -89,7 +89,11 @@
     font-size: 14px;
     margin-top: 1vw;
     min-height: 3vw;
-    float: right;
     font-weight: 600;
+  }
+
+  .created {
+    width: 15vw;
+    margin: auto;
   }
   
