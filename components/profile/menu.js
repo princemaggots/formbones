@@ -105,7 +105,7 @@ export default function Profile() {
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
                     <Link href="/profile/profile"><StyledMenuItem onClick={handleClose}>View Profile</StyledMenuItem></Link>
-                    <Link href="/directory/allcharacters"><StyledMenuItem onClick={handleClose}>Characters</StyledMenuItem></Link>
+                    <Link href="/directory/character/post"><StyledMenuItem onClick={handleClose}>Post</StyledMenuItem></Link>
                     <Link href="/profile/settings"><StyledMenuItem onClick={handleClose}>Setting</StyledMenuItem></Link>
                     <Link href="/api/auth/signout"><StyledMenuItem onClick={handleClose}>Logout</StyledMenuItem></Link>
 

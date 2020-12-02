@@ -99,6 +99,10 @@ const ExpandedList = ({ data }) => (
                 </li>
               </ul>
             </div>
+            <div className={styles.route}>
+              <a href={`./${data.id}`}>
+              <button className={styles.route} > view as full page</button></a>
+            </div>
         </div>
       </div>
   );

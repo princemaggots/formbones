@@ -28,7 +28,8 @@ export default function CharacterPage () {
   if (typeof window !== 'undefined' && loading) return null
 
   // If no session exists, display access denied message
-  if (!session) { return  <Layout><AccessDenied/></Layout> }
+  if (!character) return null;
+
 
   // If session exists, display content
   return (

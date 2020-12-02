@@ -83,3 +83,13 @@
     font-weight: 600;
   }
 
+  .creator {
+    width: 15vw;
+    background-color: #143021;
+    font-size: 14px;
+    margin-top: 1vw;
+    min-height: 3vw;
+    float: right;
+    font-weight: 600;
+  }
+  

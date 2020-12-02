@@ -4,10 +4,9 @@ import { getSession } from 'next-auth/client'
 var mysql      = require('mysql');
 
 export default async (req, res) => {
-  const session = await getSession({ req })
   const id = req.query.id
 
-  if (session) {
+
 
     var connection = mysql.createConnection({
       host     : process.env.RDS_HOST,
@@ -33,7 +32,5 @@ export default async (req, res) => {
 
 
 
-  } else {
-    res.send({ error: 'Error, unauthorized user.' })
-  }
+  
 }

@@ -71,7 +71,7 @@ export default function Header () {
     <a href="/directory/gallery/index">gallery</a>
     </div>
     <div className="post">
-      <a href="/directory/character/post">post</a>
+      <a href="/directory/allcharacters">characters</a>
     </div> 
     {!session && 
         <React.Fragment>

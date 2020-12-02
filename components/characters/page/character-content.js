@@ -15,7 +15,7 @@ import router from "next/router";
   },
 }))(Tooltip); */
 
-const CharacterContent = ({ data, id }) => {
+const CharacterContent = ({ data }) => {
 
 
     return (
@@ -26,7 +26,7 @@ const CharacterContent = ({ data, id }) => {
             <div className={styles.charimg}>
                 <img src={data.location}/> 
                 {data.location === "" &&
-                <img src="https://via.placeholder.com/400x600"/> 
+                <img src="https://via.placeholder.com/800"/> 
                 }
             </div>
             <h1 className={styles.name}>{data.characterName}</h1>
@@ -55,7 +55,9 @@ const CharacterContent = ({ data, id }) => {
                 <li><b>moral alignment:</b> {data.moralAlignment}
                 </li>
               </ul>
-            </div>   
+            </div>  
+            <div> 
+            <button className={styles.creator}> created by: {data.user_email}</button> </div>
         </div>
 
      </div>

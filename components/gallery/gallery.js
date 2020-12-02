@@ -25,24 +25,32 @@ const GlobalCss = withStyles({
 export default function Gallery () {
   const [ session, loading ] = useSession()
   const [ content , setContent ] = useState()
-  const router = useRouter()
+  const [numberOfPages, setNumberOfPages] = useState();
+  const router = useRouter();
 
- 
-
-   // Fetch content from protected route
-  useEffect(()=>{
+  // Fetch content from protected route
+  useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/directory/gallery/getcharacters')
-      setContent(await res.json())
-    }
-    fetchData()
-  }) 
-
+      const res = await fetch("/api/directory/gallery/getcharacters");
+      const { results, number_of_pages } = await res.json();
+      setContent(results);
+      setNumberOfPages(number_of_pages);
+      console.log({ results, number_of_pages });
+    };
+    fetchData();
+  }, [session]);
   const onPaginationChange = useCallback((event, page) => {
-    
+    console.log("change to page", page);
+    const fetchData = async () => {
+      const res = await fetch(
+        `/api/directory/gallery/getcharacters?page=${page}`
+      );
+      const { results, number_of_pages } = await res.json();
+      setContent(results);
+      setNumberOfPages(number_of_pages);
+    };
+    fetchData();
   }, []);
-  
-
 
 
   // When rendering client side don't display anything until loading is complete
@@ -50,7 +58,6 @@ export default function Gallery () {
 
   // If no session exists, display access denied message
 
-  // If session exists, display content
 
 
   // If session exists, display content
@@ -71,7 +78,7 @@ export default function Gallery () {
       <GlobalCss />   
       <Pagination 
       onChange={onPaginationChange} 
-      count={10} 
+      count={numberOfPages} 
       />
         </div>
     </Layout>

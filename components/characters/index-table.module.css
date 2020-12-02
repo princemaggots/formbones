@@ -15,6 +15,16 @@
   .text {
      width: 70%;
   }
+
+  .route {
+    margin: 0.5vw auto;
+    width: 12vw;
+  }
+
+  .route button {
+    background-color: #142214;
+    font-size: 16px;
+  }
   
   .textbox {
     background-color: #1a211a;
