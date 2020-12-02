@@ -12,16 +12,27 @@ export default function Profile () {
   const router = useRouter()
 
 
- 
+
 
   // Fetch content from protected route
-  useEffect(()=>{
+ // Fetch content from protected route
+ useEffect(() => {
+  var email;
+  if (router.query.email) {
+    email = router.query.email;
+  } else if (session && session.user.email) {
+    email = session.user.email;
+  }
+  if (email) {
     const fetchData = async () => {
-      const res = await fetch(`api/profile/getprofile?email=encodeURIComponent(${email})`)
-      setContent(await res.json())
-    }
-    fetchData()
-  },[session])
+      const res = await fetch(
+        `/api/profile/getprofile?email=${encodeURIComponent(email)}`
+      );
+      setContent(await res.json());
+    };
+    fetchData();
+  }
+}, [session]);
 
   
 
@@ -32,8 +43,6 @@ export default function Profile () {
 
   // If no session exists, display access denied message
   if (!session) { return <Layout><AccessDenied/></Layout> }
-
-  // If session exists, display content
 
 
   // If session exists, display content

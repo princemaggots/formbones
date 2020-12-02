@@ -136,7 +136,7 @@ const SettingsForm: React.FC<{
             { setSubmitting }: FormikHelpers<SettingsValues>
           ) => {
             axios.post("/api/profile/saveprofile", values).then(() => {
-              router.push("profile");
+              router.push("/profile/profile");
             });
           }}
         >
