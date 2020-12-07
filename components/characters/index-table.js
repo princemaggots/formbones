@@ -80,7 +80,7 @@ const ExpandedList = ({ data }) => (
         <div className={styles.chardisplay}>
           <img src={data.location} />
           {data.location === "" &&
-          <img src="https://via.placeholder.com/500"/> 
+          <img src="/charholder.png"/> 
         }
           <div className={`${styles.textbox} ${styles.margin}`}>
               <h3>Additional Info</h3>
@@ -100,8 +100,8 @@ const ExpandedList = ({ data }) => (
               </ul>
             </div>
             <div className={styles.route}>
-              <a href={`./${data.id}`}>
-              <button className={styles.route} > view as full page</button></a>
+              <Link href={`./${data.id}`}>
+              <button className={styles.route} > view as full page</button></Link>
             </div>
         </div>
       </div>

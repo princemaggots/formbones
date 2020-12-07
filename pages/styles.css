@@ -203,7 +203,8 @@ label {
 
 button {
   width:5vw;
-  height:2vw;
+  min-height:2vw;
+  height: auto;
   background-color: var(--buttonBackgroundColor);
   color: #f2f2f2;
   border-radius: 10px;
@@ -212,6 +213,7 @@ button {
   margin-bottom:1vh;
   border: none;
   letter-spacing:1.2px;
+  padding: 5px;
 }
 
 button:hover {
@@ -297,8 +299,9 @@ button:hover {
 
 .submission {
   margin-top: 1.3vw;
-  height: 2.5vw;
+  min-height: 2.5vw;
   width: 6vw;
+  height: auto;
 }
 
 .submitbox {
@@ -312,6 +315,14 @@ button:hover {
 
 .chardisplay {
   max-width: 40vw;
+}
+
+.imagedisplay {
+  max-width: 55vw;
+}
+
+.imagedisplay img {
+  max-width: 100%;
 }
 
 .mobiledisplay {
@@ -337,6 +348,34 @@ button:hover {
 .radiobox label {
   border: none;
 }
+@media only screen and (max-width: 1200px) {
+  button {
+    width: 11vw;
+  }
+
+
+  .submission {
+    width: 9vw;
+  }
+}
+
+/* @media only screen and (max-width:750px) {
+   .char-display {
+    max-width: 30vw;
+  }
+} */
+
+@media only screen and (max-width: 625px) {
+  button {
+    width: 17vw;
+  }
+
+  .submission {
+    width: 15vw;
+  }
+} 
+
+
 
 @media only screen and (max-width: 400px) {
   .header {
@@ -366,6 +405,14 @@ button:hover {
     height: 30vw;
     overflow: auto;
   }
+
+  button {
+    width: 25vw;
+  }
+
+  .submission {
+    width: 20vw;
+  }
 }
 
 @media only screen and (max-height: 400px) {
@@ -378,3 +425,6 @@ button:hover {
     font-size: 16px;
   }
 }
+
+
+

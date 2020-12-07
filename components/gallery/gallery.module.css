@@ -54,8 +54,64 @@
 
 .directory {
   width: 10vw;
+  min-height: 2vw;
+  height: auto;
   background-color: rgb(12, 87, 47);
   font-size: 14px;
   margin-top: 1vw;
+}
+
+.search {
+  width: 20vw;
+  margin-top: 1vw;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.5vw 0;
+}
+
+.none {
+  text-align: center;
+  margin-top: 1vw;
+  font-size: 20px;
+}
+@media only screen and (max-width: 1200px) {
+
+  .directory {
+    width: 15vw;
+  }
+
+  .search {
+    width: 30vw;
+  }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+  .search {
+    width: 35vw;
+  }
+
+}
+@media only screen and (max-width: 650px) {
+
+  .search {
+    width: 42vw;
+  }
+
+  .directory {
+    width: 25vw;
+  }
+
+  .top {
+    margin: 0 0 2vw 0;
+  }
+
+  .frame {
+    margin: 1vw;
+  }
 }
 

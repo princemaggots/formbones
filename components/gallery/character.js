@@ -5,6 +5,7 @@ import { faLock }  from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import router from "next/router";
+import Link from 'next/link'
 
 const HtmlTooltip = withStyles(() => ({
   tooltip: {
@@ -45,7 +46,7 @@ const Character = ({ data, id }) => {
         <div className={styles.charimg}>
          <img src={data.location}/> 
          {data.location === "" &&
-          <img src="https://via.placeholder.com/300"/> 
+          <img src="/charholder.png"/> 
         }
         </div>
        {/*  make a different placeholder image */}

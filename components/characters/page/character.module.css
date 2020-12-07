@@ -59,6 +59,7 @@
     letter-spacing: 2px;
     border-radius: 10px;
     text-align: right;
+    margin-top: 0.5vw;
   }
 
   .t1 {
@@ -96,4 +97,131 @@
     width: 15vw;
     margin: auto;
   }
+
+  @media only screen  and (max-width:1300px) {
+
+    .creator {
+      width: 20vw;
+    }
   
+    .created {
+      width: 20vw;
+    }
+  }
+  
+  @media only screen  and (max-width:1200px) {
+    .textbox li {
+      font-size: 14px;
+    }
+
+    .textbox li b {
+      font-size: 15px;
+    }
+
+    .textbox h3 {
+      font-size: 16px;
+    }
+
+    .name {
+      font-size: 25px;
+    }
+
+  }
+
+  @media only screen  and (max-width:1000px) {
+
+    .creator {
+      width: 30vw;
+    }
+  
+    .created {
+      width: 30vw;
+    }
+
+  }
+
+  @media only screen  and (max-width:800px) {
+
+
+
+    .creator {
+      width: 40vw;
+    }
+  
+    .created {
+      width: 40vw;
+    }
+
+    .textbox ul {
+      margin-left: -13%;
+    }
+    .textbox li {
+      font-size: 13px;
+    }
+
+    .textbox li b {
+      font-size: 14px;
+    }
+
+    .name {
+      font-size: 20px;
+    }
+
+  }
+
+  
+   @media only screen  and (max-width:600px) {
+
+    .box1 {
+      width: 75%;
+    }
+
+    .charimg {
+      height: auto;
+    }
+    .flexbox {
+      display: inline-block;
+    }
+
+    .box2 {
+      margin: 4vw auto;
+      width: auto;
+    }
+
+    .textbox {
+      width: 70vw;
+      height: 42vw;
+      margin: 3vw auto;
+    }
+
+    .textbox ul {
+      margin-left: -6%;
+    }
+  } 
+
+  @media only screen and (max-width: 500px) {
+    .creator {
+      width: 60vw;
+    }
+  
+    .created {
+      width: 60vw;
+    }
+
+    .textbox ul {
+      margin-left: -10%;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .creator {
+      width: 65vw;
+    }
+  
+    .created {
+      width: 65vw;
+    }
+    .textbox ul {
+      margin-left: -15%;
+    }
+  }

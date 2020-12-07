@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import Link from 'next/link'
 import { useSession } from 'next-auth/client'
 import Layout from '../../components/layout'
 import AccessDenied from '../../components/access-denied'
@@ -7,6 +8,7 @@ import styles from './gallery.module.css'
 import Character from './character.js'
 import Pagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles'
+import { TextField } from "@material-ui/core";
 
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
@@ -19,6 +21,15 @@ const GlobalCss = withStyles({
       marginTop: 12,
       marginBottom: 10,
     },
+    '.MuiOutlinedInput-root':{
+      borderRadius: 10,
+      border: [
+        [1, 'solid', 'blue']
+      ],
+  },
+  '.MuiInputBase-root':{
+    color: 'white',
+  },
   },
 })(() => null);
 
@@ -52,6 +63,27 @@ export default function Gallery () {
     fetchData();
   }, []);
 
+  const onQuery = useCallback(
+    (event) => {
+      if (event) {
+        const fetchData = async () => {
+          const res = await fetch(
+            `/api/directory/gallery/getcharacters?queryString=${encodeURIComponent(
+              event.currentTarget.value
+            )}`
+          );
+          const { results, number_of_pages } = await res.json();
+          setContent(results);
+          setNumberOfPages(number_of_pages);
+          console.log({ results, number_of_pages });
+        };
+        fetchData();
+      }
+    },
+    [setContent, setNumberOfPages]
+  );
+
+
 
   // When rendering client side don't display anything until loading is complete
   if (typeof window !== 'undefined' && loading) return null
@@ -64,9 +96,16 @@ export default function Gallery () {
   if (!content) return null;
   return (
     <Layout>
-      <div className="containerhome character-grid">
-        {session &&   <a href="/directory/allcharacters"><button className={styles.directory}> Character Directory</button></a>}
-      
+      <div className="containerhome">
+        <div className={styles.top}>
+        {session &&   <Link href="/directory/allcharacters"><button className={styles.directory}> Character Directory</button></Link>} 
+        <GlobalCss />
+        <TextField className={styles.search} name="queryString" onChange={onQuery} variant="outlined" />
+
+
+
+
+      </div>
       <div className={styles.chardisplay}>
       {content.map((item) => (
          <Character
@@ -75,11 +114,16 @@ export default function Gallery () {
         )) }
       </div> 
 
-      <GlobalCss />   
+      {numberOfPages === 0 && <div className={styles.none}> Nope!</div>}
+
+      {numberOfPages !== 0 && 
+      <>
+         
       <Pagination 
       onChange={onPaginationChange} 
       count={numberOfPages} 
-      />
+      /> 
+      </>}
         </div>
     </Layout>
   );

@@ -251,7 +251,7 @@ const PostForm: React.FC<{
                   Upload
                 </button>
                 {error && <span className="errors">{error}</span>}
-                {imageUrl && <img className="char-display" src={imageUrl} />}
+                {imageUrl && <div className="imagedisplay"><img src={imageUrl} /></div>}
 
             <h1> Optional</h1>
 

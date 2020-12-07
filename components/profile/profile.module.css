@@ -38,3 +38,27 @@
     border-bottom: 2px solid #1e581c69;
 
 }
+
+@media only screen and (max-width: 500px) {
+
+    .pfp {
+      width: 50%;
+    }
+
+    .info {
+        width: 50%;
+    }
+
+  }
+
+  @media only screen and (max-width: 800px) {
+
+    .pfp {
+      width: 40%;
+    }
+
+    .info {
+        width: 60%;
+    }
+
+  }

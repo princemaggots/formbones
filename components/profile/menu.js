@@ -19,6 +19,7 @@ const StyledMenuItem = withStyles({
         background:'#111114',
         fontWeight: 400,
         fontSize: 16,
+
         fontFamily: [
             '"Exo 2"',
             '"Lucida Sans Unicode"',

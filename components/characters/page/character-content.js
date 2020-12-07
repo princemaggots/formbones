@@ -1,5 +1,6 @@
 import React, { Fragment, useCallback } from "react";
 import styles from "./character.module.css";
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock }  from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@material-ui/core/Tooltip';
@@ -24,9 +25,11 @@ const CharacterContent = ({ data }) => {
 
         <div className={styles.box1}>
             <div className={styles.charimg}>
-                <img src={data.location}/> 
+            {data.location !== "" &&
+            <img src={data.location}/> 
+            }
                 {data.location === "" &&
-                <img src="https://via.placeholder.com/800"/> 
+                <img src="/charholder.png"/> 
                 }
             </div>
             <h1 className={styles.name}>{data.characterName}</h1>
@@ -36,7 +39,7 @@ const CharacterContent = ({ data }) => {
 
         <div className={styles.box2}>
         <div className={styles.created}> 
-            <a href={`/profile/profile/${data.user_email}`}><button className={styles.creator}> created by: {data.user_email}</button></a> </div>
+            <Link href={`/profile/profile/${data.user_email}`}><button className={styles.creator}> created by: {data.user_email}</button></Link> </div>
 
             <div className={styles.textbox}>
                 <h3> biography</h3>
