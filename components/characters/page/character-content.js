@@ -7,14 +7,16 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import router from "next/router";
 
-/* const HtmlTooltip = withStyles(() => ({
+
+const HtmlTooltip = withStyles(() => ({
   tooltip: {
     backgroundColor: '#000',
     color: '#6fff9a',
     fontSize: 14,
     fontweight: 500,
   },
-}))(Tooltip); */
+}))(Tooltip);
+
 
 const CharacterContent = ({ data }) => {
 
@@ -39,7 +41,11 @@ const CharacterContent = ({ data }) => {
 
         <div className={styles.box2}>
         <div className={styles.created}> 
-            <Link href={`/profile/profile/${data.user_email}`}><button className={styles.creator}> created by: {data.user_email}</button></Link> </div>
+            <Link href={`/profile/profile/${data.user_email}`}><button className={styles.creator}> created by: {data.user_email}</button></Link> 
+            {data.visibility === "private" &&
+                <HtmlTooltip title="Private" ><div className={styles.lock}>
+                    <FontAwesomeIcon icon={faLock} />
+                </div></HtmlTooltip> }</div>
 
             <div className={styles.textbox}>
                 <h3> biography</h3>

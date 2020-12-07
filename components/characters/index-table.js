@@ -3,11 +3,20 @@ import DataTable, { createTheme } from 'react-data-table-component';
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit }  from '@fortawesome/free-solid-svg-icons'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import styles from './index-table.module.css'
+import { faLock }  from '@fortawesome/free-solid-svg-icons'
+import Tooltip from '@material-ui/core/Tooltip';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
-/* STYLE THIS PAGE PLEASE */
 
+const HtmlTooltip = withStyles(() => ({
+  tooltip: {
+    backgroundColor: '#000',
+    color: '#6fff9a',
+    fontSize: 14,
+    fontweight: 500,
+  },
+}))(Tooltip);
 
 
 createTheme('Swamp', {
@@ -99,9 +108,15 @@ const ExpandedList = ({ data }) => (
                 </li>
               </ul>
             </div>
-            <div className={styles.route}>
-              <Link href={`./${data.id}`}>
-              <button className={styles.route} > view as full page</button></Link>
+            <div className={styles.flexer}>
+              <div className={styles.route}>
+                <Link href={`./${data.id}`}>
+                <button className={styles.route} > view as full page</button></Link> 
+              </div>
+              {data.visibility === "private" &&
+                <HtmlTooltip title="Private" ><div className={styles.lock}>
+                    <FontAwesomeIcon icon={faLock} />
+                </div></HtmlTooltip> }
             </div>
         </div>
       </div>
@@ -124,6 +139,8 @@ class IndexTable extends Component {
     const {contextActions} = this.props 
     const {handleRowSelected} = this.props
     const {clearSelectedRows} = this.props
+    const {subHeaderComponentMemo} = this.props
+    const {resetPaginationToggle} = this.props
 
     const columns = [
       {
@@ -192,6 +209,10 @@ class IndexTable extends Component {
         expandableRowsComponent={<ExpandedList />}
         customStyles={customStyles}
         pagination
+        subHeader
+        subHeaderComponent={subHeaderComponentMemo}
+        paginationResetDefaultPage={resetPaginationToggle}
+
       />
     )
   };

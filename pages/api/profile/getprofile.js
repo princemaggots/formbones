@@ -8,7 +8,7 @@ export default async (req, res) => {
   const email = decodeURIComponent(req.query.email);
   console.log(email);
 
-  var connection = mysql.createConnection({
+      var connection = mysql.createConnection({
     host: process.env.RDS_HOST,
     user: process.env.RDS_USER,
     password: process.env.RDS_PASSWORD,
@@ -29,5 +29,7 @@ export default async (req, res) => {
     );
   
     connection.end();
+  
+
 
 };

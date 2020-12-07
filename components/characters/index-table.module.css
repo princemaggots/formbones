@@ -74,6 +74,18 @@
     font-weight: 600;
   }
 
+  .flexer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lock {
+    margin: 0.5vw auto;
+    transform: translateY(15px);
+    color: #f2f2f2;
+    font-size: 25px;
+  }
+
   @media only screen and (max-height: 400px) {
 
     .textbox {

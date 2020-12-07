@@ -94,9 +94,22 @@
   }
 
   .created {
-    width: 15vw;
+    width: 40vw;
     margin: auto;
+    display: flex;
+    justify-content: center;
   }
+
+  
+  .lock {
+    margin: 0.5vw;
+    transform: translateY(20px);
+    color: #f2f2f2;
+    font-size: 25px;
+  }
+
+
+
 
   @media only screen  and (max-width:1300px) {
 
@@ -105,7 +118,7 @@
     }
   
     .created {
-      width: 20vw;
+      width: 40vw;
     }
   }
   
@@ -135,7 +148,7 @@
     }
   
     .created {
-      width: 30vw;
+      width: 40vw;
     }
 
   }
@@ -149,7 +162,7 @@
     }
   
     .created {
-      width: 40vw;
+      width: 60vw;
     }
 
     .textbox ul {

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-
+  import { TextField } from "@material-ui/core";
 
 export default function Index () {
   const [selectedRows, setSelectedRows] =useState([])
@@ -15,7 +15,8 @@ export default function Index () {
   const [ content , setContent ] = useState()
   const [toggleCleared, setToggleCleared] = React.useState(true);
   const router = useRouter()
-  const [filterText, setFilterText] = React.useState('');
+  const [resetPaginationToggle, setResetPaginationToggle] = React.useState(false);
+
 
 
 
@@ -58,11 +59,34 @@ export default function Index () {
     fetchData()
   },[session])
 
+  const onQuery = useCallback(
+    (event) => {
+      if (event) {
+        const fetchData = async () => {
+          const res = await fetch(
+            `/api/directory/getcharacters?queryString=${encodeURIComponent(
+              event.currentTarget.value
+            )}`
+          );
+          const { results } = await res.json();
+          setContent(results);
+          console.log({ results});
+        };
+        fetchData();
+      }
+    },
+    [setContent]
+  );
+
 
 
   const contextActions = useMemo(() => {
     return <FontAwesomeIcon icon={faTrash}  onClick={handleDelete} />
   })
+
+  const subHeaderComponentMemo = useMemo(() => {
+    return <TextField  name="queryString" onChange={onQuery} variant="outlined" />
+  }, [resetPaginationToggle]);
 
 
 
@@ -83,7 +107,7 @@ export default function Index () {
         <p className="right"> All the characters you have submitted.</p>
         <div className="mobiledisplay"> Please rotate screen to landscape to view characters.</div>
 
-        {content && <IndexTable characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}       clearSelectedRows={toggleCleared}/>}
+        {content && <IndexTable characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}    paginationResetDefaultPage={resetPaginationToggle} subHeaderComponent={subHeaderComponentMemo}  clearSelectedRows={toggleCleared}/>}
       </div>
 
     </Layout>
