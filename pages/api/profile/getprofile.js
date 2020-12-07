@@ -30,6 +30,4 @@ export default async (req, res) => {
   
     connection.end();
   
-
-
 };

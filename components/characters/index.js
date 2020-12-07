@@ -7,8 +7,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-  import { TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
+import { withStyles } from '@material-ui/core/styles';
 
+  const GlobalCss = withStyles({
+    // @global is handled by jss-plugin-global.
+    '@global': {
+      // You should target [class*="MuiButton-root"] instead if you nest themes.
+      '.MuiPaginationItem-root':{
+        color: 'white',
+      },
+      '.MuiPagination-ul':{
+        marginTop: 12,
+        marginBottom: 10,
+      },
+      '.MuiOutlinedInput-root':{
+        borderRadius: 10,
+        border: [
+          [1, 'solid', 'blue']
+        ],
+    },
+    '.MuiInputBase-root':{
+      color: 'white',
+    },
+    },
+  })(() => null);
 export default function Index () {
   const [selectedRows, setSelectedRows] =useState([])
   const [ session, loading ] = useSession()
@@ -68,9 +91,9 @@ export default function Index () {
               event.currentTarget.value
             )}`
           );
-          const { results } = await res.json();
+          const results  = await res.json();
           setContent(results);
-          console.log({ results});
+          console.log(results);
         };
         fetchData();
       }
@@ -81,12 +104,12 @@ export default function Index () {
 
 
   const contextActions = useMemo(() => {
-    return <FontAwesomeIcon icon={faTrash}  onClick={handleDelete} />
+    return <FontAwesomeIcon icon={faTrash}  onClick={handleDelete} /> 
   })
 
-  const subHeaderComponentMemo = useMemo(() => {
-    return <TextField  name="queryString" onChange={onQuery} variant="outlined" />
-  }, [resetPaginationToggle]);
+  const Searchbar = useMemo(() => {
+    return   <> <GlobalCss /> <TextField  name="queryString" onChange={onQuery} variant="outlined" /> </>
+  })
 
 
 
@@ -107,7 +130,7 @@ export default function Index () {
         <p className="right"> All the characters you have submitted.</p>
         <div className="mobiledisplay"> Please rotate screen to landscape to view characters.</div>
 
-        {content && <IndexTable characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}    paginationResetDefaultPage={resetPaginationToggle} subHeaderComponent={subHeaderComponentMemo}  clearSelectedRows={toggleCleared}/>}
+        {content && <IndexTable characters={content}  handleRowSelected={handleRowSelected} onDelete={handleDelete} contextActions={contextActions} onEdit={handleEdit}    paginationResetDefaultPage={resetPaginationToggle}  actions={Searchbar}  clearSelectedRows={toggleCleared}/>}
       </div>
 
     </Layout>

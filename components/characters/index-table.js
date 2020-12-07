@@ -70,6 +70,11 @@ const customStyles = {
         paddingRight: '2px',
       },
     },
+    title: {
+      style: {
+        textAlign: 'right',
+      }
+    }
   };
 
 const ExpandedList = ({ data }) => (
@@ -139,7 +144,7 @@ class IndexTable extends Component {
     const {contextActions} = this.props 
     const {handleRowSelected} = this.props
     const {clearSelectedRows} = this.props
-    const {subHeaderComponentMemo} = this.props
+    const {actions} = this.props
     const {resetPaginationToggle} = this.props
 
     const columns = [
@@ -209,8 +214,7 @@ class IndexTable extends Component {
         expandableRowsComponent={<ExpandedList />}
         customStyles={customStyles}
         pagination
-        subHeader
-        subHeaderComponent={subHeaderComponentMemo}
+        actions={actions}
         paginationResetDefaultPage={resetPaginationToggle}
 
       />

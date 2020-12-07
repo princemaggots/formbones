@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import styles from './gallery.module.css'
 import Character from './character.js'
 import Pagination from '@material-ui/lab/Pagination';
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles';
 import { TextField } from "@material-ui/core";
 
 const GlobalCss = withStyles({
