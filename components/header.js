@@ -27,7 +27,7 @@ const GlobalCss = withStyles({
         border: 0,
         color: 'white',
         height: 48,
-        width: 130,
+        width: 140,
         padding: '0 30px',
         fontFamily: [
             '"Exo 2"',
@@ -42,7 +42,7 @@ const GlobalCss = withStyles({
       fontWeight: 500,
       fontSize: 17,
       borderRadius: 2,
-      width: 130,
+      width: 140,
       height: 48,
       boxShadow: 'none',
       letterSpacing: 0.5,

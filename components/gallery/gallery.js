@@ -24,7 +24,7 @@ const GlobalCss = withStyles({
     '.MuiOutlinedInput-root':{
       borderRadius: 10,
       border: [
-        [1, 'solid', 'blue']
+        [1, 'solid', '#48ffe6']
       ],
   },
   '.MuiInputBase-root':{

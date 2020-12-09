@@ -12,6 +12,12 @@
       width: 100%;
   }
 
+  .chardisplay .textbox {
+    font-size: 15px;
+  }
+
+
+
   .text {
      width: 70%;
   }
@@ -35,6 +41,7 @@
     overflow: auto;
     margin: auto;
     break-inside: avoid; 
+    font-size: 16px;
   }
 
   .margin {
@@ -50,6 +57,8 @@
     letter-spacing: 2px;
     border-radius: 10px;
     text-align: right;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
   }
 
   .t1 {
@@ -58,6 +67,7 @@
 
   .textbox ul {
     margin-left: -8%;
+    margin-top: 0;
   }
 
   .textbox li {
@@ -69,7 +79,7 @@
   }
 
   .textbox li b {
-    font-size: 17px;
+    font-size: 16px;
     margin-right: 5px;
     font-weight: 600;
   }
@@ -86,18 +96,81 @@
     font-size: 25px;
   }
 
+  .butones {
+    margin-right: 2vw;
+    width: 10vw;
+    min-height: 3vw;
+    transform: translateY(4px);
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .textbox {
+      font-size: 14.5px;
+    }
+
+    .textbox li {
+      font-size: 14.5px;
+    }
+
+    .textbox h3 {
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    .textbox li b {
+      font-size: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .chardisplay {
+      width: 40%;
+    }
+
+    .text {
+      width: 60%;
+    }
+
+  }
+
+  @media only screen and (max-width: 800px) {
+    .butones {
+      width: 15vw;
+    }
+
+    .route {
+      width: 18vw;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .butones {
+      width: 20vw;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .butones {
+      width: 25vw;
+    }
+  }
+
+
   @media only screen and (max-height: 400px) {
 
     .textbox {
-      font-size: 12px;
+      font-size: 13px;
+    }
 
+    .textbox li {
+      font-size: 13px;
     }
     .textbox h3 {
       margin: 0;
 
     }
     .textbox li b {
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .text {
@@ -106,6 +179,12 @@
 
     .chardisplay {
       width: 45%;
+    }
+
+    .textbox h3 {
+      font-size: 15px;
+      margin-top: 0;
+      padding: 8px;
     }
 
   }

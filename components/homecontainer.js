@@ -16,7 +16,7 @@ export default function HomeContainer() {
                 <p> Posting is dead simple with a detailed form and profiles are sorted neatly so all the information looks nice. I hope you enjoy your time here!</p>
 
             </div>
-            <div className={styles.homeimg}><img src="https://via.placeholder.com/500"/></div>
+            <div className={styles.homeimg}><img src="/welcome.png"/></div>
 
         </div>
     )

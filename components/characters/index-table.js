@@ -7,6 +7,7 @@ import styles from './index-table.module.css'
 import { faLock }  from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
+import parse from 'html-react-parser';
 
 
 const HtmlTooltip = withStyles(() => ({
@@ -31,6 +32,7 @@ createTheme('Swamp', {
         background: '#3b9155',
         text: '#FFFFFF',
     },
+
     divider: {
         default: '#181821',
     },
@@ -73,10 +75,22 @@ const customStyles = {
     title: {
       style: {
         textAlign: 'right',
-      }
-    }
+      },
+    },
+    header: {
+      style: {
+        backgroundColor: '#0d0d0d',
+        marginBottom: 10,
+      },
+ 
+    },
   };
-
+  
+  const dataViewFilter = function(data) {
+    data = data.replace(/(\r\n|\n|\r)/g, "<br/>");
+    return parse(data)
+  }
+  
 const ExpandedList = ({ data }) => (
       <div className={styles.expander}>
         <div className={styles.text}>
@@ -87,7 +101,7 @@ const ExpandedList = ({ data }) => (
             </div>
             <div className={styles.textbox}>
             <h3> Biography</h3><p>
-                {data.biography}
+                {dataViewFilter(data.biography)}
               </p>
             </div>
         </div>

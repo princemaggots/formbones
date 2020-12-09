@@ -6,6 +6,7 @@ import { faLock }  from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import router from "next/router";
+import parse from 'html-react-parser';
 
 
 const HtmlTooltip = withStyles(() => ({
@@ -17,6 +18,10 @@ const HtmlTooltip = withStyles(() => ({
   },
 }))(Tooltip);
 
+const dataViewFilter = function(data) {
+  data = data.replace(/(\r\n|\n|\r)/g, "<br/>");
+  return parse(data)
+}
 
 const CharacterContent = ({ data }) => {
 
@@ -49,7 +54,7 @@ const CharacterContent = ({ data }) => {
 
             <div className={styles.textbox}>
                 <h3> biography</h3>
-                {data.biography}
+                {dataViewFilter(data.biography)}
             </div>
             <div className={styles.textbox}>
               <h3>Additional Info</h3>

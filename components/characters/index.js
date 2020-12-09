@@ -9,6 +9,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { TextField } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
+import styles from './index-table.module.css'
 
   const GlobalCss = withStyles({
     // @global is handled by jss-plugin-global.
@@ -24,11 +25,12 @@ import { withStyles } from '@material-ui/core/styles';
       '.MuiOutlinedInput-root':{
         borderRadius: 10,
         border: [
-          [1, 'solid', 'blue']
+          [1, 'solid', '#2b9015']
         ],
     },
     '.MuiInputBase-root':{
       color: 'white',
+      width: '30vw',
     },
     },
   })(() => null);
@@ -108,7 +110,7 @@ export default function Index () {
   })
 
   const Searchbar = useMemo(() => {
-    return   <> <GlobalCss /> <TextField  name="queryString" onChange={onQuery} variant="outlined" /> </>
+    return   <> <button className={styles.butones}>new character</button> <GlobalCss /> <TextField  name="queryString" onChange={onQuery} variant="outlined" /> </>
   })
 
 

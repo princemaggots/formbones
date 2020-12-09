@@ -11,7 +11,7 @@ export default function Settings() {
   // Fetch content from protected route
   useEffect(()=>{
     const fetchData = async () => {
-        const res = await fetch(`/api/profile/getprofile`)
+        const res = await fetch(`/api/profile/getsettings`)
         setContent(await res.json())
     }
     fetchData()
@@ -31,7 +31,6 @@ export default function Settings() {
   const initialValues={
     name: '', 
     about: '',
-   /*  location: '', */
   }
 
   // If session exists, display content

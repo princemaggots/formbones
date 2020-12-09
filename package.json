@@ -25,6 +25,7 @@
     "axios": "^0.20.0",
     "formidable": "^1.2.2",
     "formik": "^2.1.7",
+    "html-react-parser": "^0.14.2",
     "jss-plugin-global": "^10.4.0",
     "mysql": "^2.18.1",
     "next": "^9.5.0",

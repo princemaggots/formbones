@@ -5,10 +5,11 @@ var mysql = require("mysql");
 
 export default async (req, res) => {
   const session = await getSession({ req });
-  const email = decodeURIComponent(req.query.email);
+  const email =  decodeURIComponent(req.query.email);
   console.log(email);
 
-      var connection = mysql.createConnection({
+
+    var connection = mysql.createConnection({
     host: process.env.RDS_HOST,
     user: process.env.RDS_USER,
     password: process.env.RDS_PASSWORD,

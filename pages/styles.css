@@ -133,7 +133,7 @@ dd {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 35vh;
+  width: 18vw;
 }
 
 .profile {
@@ -348,6 +348,19 @@ button:hover {
 .radiobox label {
   border: none;
 }
+
+@media only screen and (max-width: 1650px) {
+  .nav  {
+    width: 22vw;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .nav  {
+    width: 25vw;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   button {
     width: 11vw;
@@ -357,13 +370,23 @@ button:hover {
   .submission {
     width: 9vw;
   }
+
+  .nav  {
+    width: 30vw;
+  }
 }
 
-/* @media only screen and (max-width:750px) {
-   .char-display {
-    max-width: 30vw;
+ @media only screen and (max-width:1000px) {
+   .nav {
+    width: 35vw;
   }
-} */
+} 
+
+@media only screen and (max-width:850px) {
+  .nav {
+   width: 47vw;
+ }
+} 
 
 @media only screen and (max-width: 625px) {
   button {
@@ -372,6 +395,10 @@ button:hover {
 
   .submission {
     width: 15vw;
+  }
+
+  .nav {
+    width: 55vw;
   }
 } 
 

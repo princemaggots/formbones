@@ -79,7 +79,7 @@ const CharacterSchema = Yup.object().shape({
   mbti: Yup.string()
   .min(4, 'MBTI must be 4 characters long.')
   .max(4, 'MBTI must be 4 characters long.')
-  .matches(/(i|e)(n|s)(f|t)(p|j)/ , 'Must be in proper MBTI format.'),
+  .matches(/(i|e|I|E)(n|s|N|S)(f|t|F|T)(p|j|P|J)/ , 'Must be in proper MBTI format.'),
   ennegram: Yup.string()
   .max(3, 'Must be in the ennegram format (ex: 7, 7w8)')
   .matches(/(\d[wW]\d)|\d/ , 'Must be in the ennegram format (ex: 7, 7w8)'),
