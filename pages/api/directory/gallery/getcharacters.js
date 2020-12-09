@@ -2,7 +2,7 @@
 import { getSession } from "next-auth/client";
 
 var mysql = require("mysql");
-var characters_per_page = 6;
+var characters_per_page = 10;
 
 export default async (req, res) => {
   const session = await getSession({ req });

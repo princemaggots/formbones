@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { TextField } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 import styles from './index-table.module.css'
+import Link from 'next/link'
 
   const GlobalCss = withStyles({
     // @global is handled by jss-plugin-global.
@@ -110,7 +111,7 @@ export default function Index () {
   })
 
   const Searchbar = useMemo(() => {
-    return   <> <button className={styles.butones}>new character</button> <GlobalCss /> <TextField  name="queryString" onChange={onQuery} variant="outlined" /> </>
+    return   <> <Link href="/directory/character/post"><button className={styles.butones}>new character</button></Link> <GlobalCss /> <TextField  name="queryString" onChange={onQuery} variant="outlined" /> </>
   })
 
 
