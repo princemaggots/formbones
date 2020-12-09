@@ -6,11 +6,11 @@ import Providers from 'next-auth/providers'
 const options = {
   // https://next-auth.js.org/configuration/providers
   providers: [
-     Providers.Email({
+     /* Providers.Email({
       server: process.env.EMAIL_SERVER, 
       from: process.env.EMAIL_FROM,
-    }),
-    Providers.Apple({
+    }), */
+    /* Providers.Apple({
       clientId: process.env.APPLE_ID,
       clientSecret: { 
         appleId: process.env.APPLE_ID,
@@ -27,19 +27,19 @@ const options = {
     Providers.Facebook({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET
-    }),
-    Providers.GitHub({
+    }), */
+/*     Providers.GitHub({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
-    }), 
+    }),  */
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET
     }),
-    Providers.Twitter({
+/*     Providers.Twitter({
       clientId: process.env.TWITTER_ID,
       clientSecret: process.env.TWITTER_SECRET
-    }),
+    }), */
   ],
   // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
   // https://next-auth.js.org/configuration/database

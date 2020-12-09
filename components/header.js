@@ -67,29 +67,34 @@ export default function Header () {
 <h1>  <Link href="/">Bare Bones</Link></h1>
 </div>
 
- <div className="nav">
-    <div className="support">
-    <Link href="/directory/gallery/index">gallery</Link>
-    </div>
-    <div className="post">
-        <Link href="/directory/allcharacters">characters</Link>
-        </div> 
+
+
+
 
     {!session && 
+           <div className="navalone"> 
+           <div className="gallalone">
+            <Link href="/directory/gallery/index">gallery</Link>
+             </div>
         <React.Fragment>
         <GlobalCss />
           <Button variant="contained" href="/api/auth/signin">
           Sign In
         </Button>
-        </React.Fragment>
+        </React.Fragment></div>
           }
-      {session && <>
-
+      {session && <div className="nav">
+        <div>
+        <Link href="/directory/gallery/index">gallery</Link>
+         </div>
+         <div className="post">
+            <Link href="/directory/allcharacters">characters</Link>
+        </div> 
         <React.Fragment>
         <GlobalCss />
         <Profile /> 
         </React.Fragment>
-          </>}
+          </div>}
 
 {/*      <div className="profile">
         <div className="proimg">
@@ -100,7 +105,7 @@ export default function Header () {
       </div>
     </div>  */}
 </div> 
-</div>
+
 
 {/*       <div className={styles.signedInStatus}>
         <p className={`nojs-show ${(!session && loading) ? styles.loading : styles.loaded}`}>

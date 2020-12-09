@@ -136,6 +136,18 @@ dd {
   width: 18vw;
 }
 
+.navalone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 18vw;
+}
+
+.gallalone  {
+  margin-right: 2vw;
+}
+
 .profile {
   display: flex;
   flex-direction: row;
@@ -349,6 +361,8 @@ button:hover {
   border: none;
 }
 
+
+
 @media only screen and (max-width: 1650px) {
   .nav  {
     width: 22vw;
@@ -374,6 +388,10 @@ button:hover {
   .nav  {
     width: 30vw;
   }
+
+  .navalone {
+    width: 30vw;
+  }
 }
 
  @media only screen and (max-width:1000px) {
@@ -384,6 +402,10 @@ button:hover {
 
 @media only screen and (max-width:850px) {
   .nav {
+   width: 47vw;
+ }
+
+ .navalone {
    width: 47vw;
  }
 } 
@@ -412,8 +434,11 @@ button:hover {
     display: inline-block;
   }
   .nav {
-    width: 45vh;
+    width: 50vw;
     font-size: 14px;
+  }
+  .navalone {
+    width: 50vw;
   }
   
   label {
@@ -448,7 +473,17 @@ button:hover {
   }
 
 }
+@media only screen and (max-height:600px) {
+  .header {
+    height: 11vh;
+  }
+}
 
+@media only screen and (max-height:475px) {
+  .header {
+    height: 13vh;
+  }
+}
 
 @media only screen and (max-height: 400px) {
   .header {
