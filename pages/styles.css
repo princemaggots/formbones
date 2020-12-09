@@ -442,6 +442,14 @@ button:hover {
   }
 }
 
+@media only screen and (max-height: 800px) {
+  .header {
+    height: 9vh;
+  }
+
+}
+
+
 @media only screen and (max-height: 400px) {
   .header {
     height: 15vh;
@@ -452,6 +460,3 @@ button:hover {
     font-size: 16px;
   }
 }
-
-
-
